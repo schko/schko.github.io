@@ -8,6 +8,15 @@
   </url>
   
   <url>
+    <loc>https://schko.github.io/posts/example/</loc>
+  </url>
+  
+  <url>
+    <loc>https://schko.github.io/posts/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://schko.github.io/</loc>
     <priority>0</priority>
   </url>
