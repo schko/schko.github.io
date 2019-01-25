@@ -18,7 +18,7 @@
       <guid>https://schko.github.io/posts/example/</guid>
       <description>We skimmed over the landmarks in our video on facial recognition, but there is some interesting modeling work that goes into determining which HOG orientations correspond to specific landmark types and positions&amp;hellip;
 Hugo also offers powerful support for code snippets:
-package main import &amp;quot;fmt&amp;quot; func print_hi(name string) { fmt.Println(&amp;quot;Hi, &amp;quot;, name) } func main() { print_hi(&amp;quot;Tom&amp;quot;) } //=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.  Check out the Hugo docs for more info on how to get the most out of Hugo.</description>
+package main import &amp;quot;fmt&amp;quot; func print_hi(name string) { fmt.Println(&amp;quot;Hi, &amp;quot;, name) } func main() { print_hi(&amp;quot;Tom&amp;quot;) } //=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.  Hugo 0.24 Released: Big archetype update + @Netlify _redirects etc.</description>
     </item>
     
   </channel>
