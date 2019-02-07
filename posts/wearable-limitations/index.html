@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Limitations of Wearable Devices in Detecting Heart Arrythmia &middot; S(M)K</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://schko.github.io/css/main.min.css" />
+  
+  
+</head>
+  <body class="single-body">
+    <nav class="nav-bar side-padding">
+  <h1 class="nav-header"><a href="https://schko.github.io/" class="nav-text">S(M)K</a></h1>
+  <div class="hamburger-menu">
+    <button onclick="hamburgerMenuPressed.call(this)" aria-haspopup="true" aria-expanded="false" aria-controls="menu" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
+    <ul id="menu" class="hamburger-menu-overlay">
+      <li><a href="https://schko.github.io/" class="hamburger-menu-overlay-link">Home</a></li>
+      <li><a href="https://schko.github.io/about_me/" class="hamburger-menu-overlay-link">About Me</a></li>
+      
+    </ul>
+  </div>
+</nav>
+    <main class="content side-text-padding">
+      <article class="post dropcase">
+        <header class="post-header">
+        	<h1 class="post-title">Limitations of Wearable Devices in Detecting Heart Arrythmia</h1>
+          <p class="post-date">Posted <time datetime="2019-02-07">Feb 7, 2019</time></p>
+        </header>
+        
+        <p>WEBSITE IN DEVELOPMENT, ignore the following, it&rsquo;s a test.</p>
+
+<p>Heart rate metrics in wearable devices is nothing new. Fitbit has been doing it for decades, and Apple has recently been dominating the market with Apple Watches.</p>
+
+<p>A group at UT Austin has compared the performance of wearables over activity levels. You can <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5374271/">see it here</a>.</p>
+
+<p>When it comes to cardiac arrythmia, atrial fibrillation (AFIB) seems to be relatively easy for wearable devices to detect. The PPG sensors, which generally have much lower sampling rate than ECG, attempt to identify heart patterns such as these:</p>
+
+<p><img src="https://static1.squarespace.com/static/50dfa835e4b015296cdef10e/t/51202cb3e4b068400108590d/1361063093281/A-Fib+LARGE.jpg" alt="ECG of AFIB" />
+<!---
+<picture>
+    
+    <source srcset="https://schko.github.io/img/afib.jpg">
+    <img src="https://schko.github.io/img/afib.jpg" alt="AFIB Example" class="small-img smartfloat-left" style="width: 50%;"/>
+</picture>
+Test
+--></p>
+
+<pre><code class="language-python">    import WTdelineator as wt
+    
+    # The WT transform should only use 2**16 samples at a time:
+    beg = 0
+    end = 2**16
+    last = False
+    
+    # Initialise the lists that will contain the results
+    ECGdelin = []
+    
+    for i in range(sig.shape[1]):
+        ECGdelin += [np.zeros((1,9),dtype=int)]
+</code></pre>
+
+
+\[ S(x) = \frac{1}{1+e^{-x}} \]
+
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hugo 0.24 Released: Big archetype update + <a href="https://twitter.com/Netlify?ref_src=twsrc%5Etfw">@Netlify</a> _redirects etc. file support<a href="https://t.co/X94FmYDEZJ">https://t.co/X94FmYDEZJ</a> <a href="https://twitter.com/hashtag/gohugo?src=hash&amp;ref_src=twsrc%5Etfw">#gohugo</a> <a href="https://twitter.com/hashtag/golang?src=hash&amp;ref_src=twsrc%5Etfw">#golang</a> <a href="https://twitter.com/spf13?ref_src=twsrc%5Etfw">@spf13</a> <a href="https://twitter.com/bepsays?ref_src=twsrc%5Etfw">@bepsays</a></p>&mdash; GoHugo.io (@GoHugoIO) <a href="https://twitter.com/GoHugoIO/status/877500564405444608?ref_src=twsrc%5Etfw">June 21, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/w7Ft2ymGmfc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<p>Check out the <a href="https://gohugo.io/documentation/">Hugo docs</a> for more info on how to get the most out of Hugo. File all bugs/feature requests at <a href="https://github.com/gohugoio/hugo">Hugo’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://discourse.gohugo.io/">Hugo Community</a>.</p>
+
+      </article>
+      
+    </main>
+    <nav class="end-nav side-padding">
+      
+      <a ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)" 
+  href="https://schko.github.io/" class="card home-card" style="background-image: url( https://schko.github.io/img/flogo.png )" rel="bookmark" >
+  <font color="black">Home</font>
+</a>
+    </nav>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script src="https://schko.github.io/js/core.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+  </body>
+</html>

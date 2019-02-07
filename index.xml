@@ -6,28 +6,30 @@
     <description>Recent content on S(M)K</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 07 Feb 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://schko.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>About Me</title>
-      <link>https://schko.github.io/about/about_me/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Limitations of Wearable Devices in Detecting Heart Arrythmia</title>
+      <link>https://schko.github.io/posts/wearable-limitations/</link>
+      <pubDate>Thu, 07 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://schko.github.io/about/about_me/</guid>
-      <description>About Sharath Koorathota.</description>
+      <guid>https://schko.github.io/posts/wearable-limitations/</guid>
+      <description>WEBSITE IN DEVELOPMENT, ignore the following, it&amp;rsquo;s a test.
+Heart rate metrics in wearable devices is nothing new. Fitbit has been doing it for decades, and Apple has recently been dominating the market with Apple Watches.
+A group at UT Austin has compared the performance of wearables over activity levels. You can see it here.
+When it comes to cardiac arrythmia, atrial fibrillation (AFIB) seems to be relatively easy for wearable devices to detect.</description>
     </item>
     
     <item>
-      <title>Landmarks Explained!</title>
-      <link>https://schko.github.io/posts/example/</link>
+      <title>About Me</title>
+      <link>https://schko.github.io/about_me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://schko.github.io/posts/example/</guid>
-      <description>We skimmed over the landmarks in our video on facial recognition, but there is some interesting modeling work that goes into determining which HOG orientations correspond to specific landmark types and positions&amp;hellip;
-Hugo also offers powerful support for code snippets:
-package main import &amp;quot;fmt&amp;quot; func print_hi(name string) { fmt.Println(&amp;quot;Hi, &amp;quot;, name) } func main() { print_hi(&amp;quot;Tom&amp;quot;) } //=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.  \[ S(x) = \frac{1}{1+e^{-x}} \] Hugo 0.</description>
+      <guid>https://schko.github.io/about_me/</guid>
+      <description>About Sharath Koorathota.</description>
     </item>
     
   </channel>
