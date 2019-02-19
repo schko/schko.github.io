@@ -6,10 +6,19 @@
     <description>Recent content in Posts on S(M)K</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://schko.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Resources for Hugo (obviously this page is still in development)</title>
+      <link>https://schko.github.io/posts/hugo-resources/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://schko.github.io/posts/hugo-resources/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Limitations of Wearable Devices in Detecting Heart Arrythmia</title>
