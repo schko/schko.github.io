@@ -26,7 +26,7 @@
 &lt;div class=&#34;box&#34;&gt;
 &lt;figure  class=&#34;right&#34;  itemprop=&#34;associatedMedia&#34;
   itemscope itemtype=&#34;http://schema.org/ImageObject&#34; 
-  style=&#34;max-width:40%&#34; &gt;
+  style=&#34;max-width:35%&#34; &gt;
     &lt;div class=&#34;img&#34;&gt;
       &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://schko.github.io/img/smk.JPG&#34; /&gt;
     &lt;/div&gt;
