@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags - S(M)K</title>
-    <link>https://schko.github.io/tags/</link>
-    <description>Recent content in Tags on S(M)K</description>
+    <title>Tags on Machine Learning and Video</title>
+    <link>http://schko.github.io/tags/</link>
+    <description>Recent content in Tags on Machine Learning and Video</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
+    <copyright>Sharath Koorathota</copyright>
+    <lastBuildDate>Sun, 30 Jun 2019 14:59:22 -0400</lastBuildDate>
     
-        <atom:link href="https://schko.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://schko.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>development</title>
+      <link>http://schko.github.io/tags/development/</link>
+      <pubDate>Sun, 30 Jun 2019 14:59:22 -0400</pubDate>
+      
+      <guid>http://schko.github.io/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>http://schko.github.io/tags/hugo/</link>
+      <pubDate>Sun, 30 Jun 2019 14:59:22 -0400</pubDate>
+      
+      <guid>http://schko.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
