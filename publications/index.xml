@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on Machine Learning and Video</title>
+    <link>http://schko.github.io/publications/</link>
+    <description>Recent content in Publications on Machine Learning and Video</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Sharath Koorathota</copyright>
+    <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://schko.github.io/publications/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>publications</title>
+      <link>http://schko.github.io/publications/publications/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/publications/publications/</guid>
+      <description>Koorathota S., Sloan R.P., et al. (2020) Deep Learning Approaches to Predicting Cognitive Measures in MIDUS. American Psychosomatic Society Conference. Koorathota S., Drori I., et al. (2019) AutoML using Metadata Language Embeddings. NeuroIPS Workshop on AutoML. Koorathota S., Sloan R.P., Schwartz J. (2019) Effects of Heart Rate on Blood Pressure and Blood Pressure Variability. American Psychosomatic Society Conference. Koorathota S., et al. (2018). Day by day, hour by hour: Naturalistic language input to infants.</description>
+    </item>
+    
+  </channel>
+</rss>
