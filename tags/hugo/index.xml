@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on Machine Learning and Video</title>
@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Sun, 30 Jun 2019 14:59:22 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://schko.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,10 +15,10 @@
     <item>
       <title>hugo resources</title>
       <link>http://schko.github.io/post/resources/</link>
-      <pubDate>Sun, 30 Jun 2019 14:59:22 -0400</pubDate>
+      <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>http://schko.github.io/post/resources/</guid>
-      <description>&lt;p&gt;Some basic Hugo resources while the website is being designed.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Some basic Hugo resources that I keep coming back to.&lt;/p&gt;</description>
     </item>
     
   </channel>

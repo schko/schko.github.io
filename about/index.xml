@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Abouts on Machine Learning and Video</title>
@@ -18,11 +18,12 @@
       
       <guid>http://schko.github.io/about/about/</guid>
       <description>professional creative director/researcher at fractal media
-researcher at columbia medical
-academic m.s. computer science at columbia university
+graduate researcher at laboratory for intelligent imaging and neural computing
+ academic ph.d. biomedical engineering at columbia university (in progress)
+m.s. computer science at columbia university
 b.s. brain and cognitive sciences at university of rochester
 b.a. economics at university of rochester
-Contact: Email | GitHub</description>
+ Contact: Email | GitHub</description>
     </item>
     
   </channel>

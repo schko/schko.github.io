@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>development on Machine Learning and Video</title>
-    <link>http://schko.github.io/tags/development/</link>
-    <description>Recent content in development on Machine Learning and Video</description>
+    <title>software on Machine Learning and Video</title>
+    <link>http://schko.github.io/tags/software/</link>
+    <description>Recent content in software on Machine Learning and Video</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
     <lastBuildDate>Mon, 20 Jan 2020 12:53:20 -0500</lastBuildDate>
     
-	<atom:link href="http://schko.github.io/tags/development/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://schko.github.io/tags/software/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>http://schko.github.io/post/web-dev-django/</guid>
       <description>&lt;p&gt;We recently demoed an &lt;a href=&#34;http://fractal.nyc/fovea&#34;&gt;eye tracking concept&lt;/a&gt; that uses gaze and pupil patterns to modify video in real time, but are in the process of making it work on any browser.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>hugo resources</title>
-      <link>http://schko.github.io/post/resources/</link>
-      <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://schko.github.io/post/resources/</guid>
-      <description>&lt;p&gt;Some basic Hugo resources that I keep coming back to.&lt;/p&gt;</description>
     </item>
     
   </channel>

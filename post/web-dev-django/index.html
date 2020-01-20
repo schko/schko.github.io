@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Archive - Machine Learning and Video</title>
+  <title>extending a python application using django - Machine Learning and Video</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Munna" />
-  <meta name="description" content="Sharath Munna Koorathota&#39;s Webpage." />
+  <meta name="description" content="We recently demoed an eye tracking concept that uses gaze and pupil patterns to modify video in real time, but are in the process of making it work on any browser.
+" />
+
   <meta name="keywords" content="video, creative, agency, production, machine learning" />
 
 
@@ -34,8 +36,8 @@
 <meta name="generator" content="Hugo 0.62.2" />
 
 
-<link rel="canonical" href="http://schko.github.io/post/" />
-<link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Machine Learning and Video" />
+<link rel="canonical" href="http://schko.github.io/post/web-dev-django/" />
+
 
 
 
@@ -58,15 +60,23 @@
 
 
 
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="Sharath Munna Koorathota&#39;s Webpage." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://schko.github.io/post/" />
-<meta property="og:updated_time" content="2020-01-20T12:53:20-05:00" />
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="Sharath Munna Koorathota&#39;s Webpage."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="Sharath Munna Koorathota&#39;s Webpage."/>
+<meta property="og:title" content="extending a python application using django" />
+<meta property="og:description" content="We recently demoed an eye tracking concept that uses gaze and pupil patterns to modify video in real time, but are in the process of making it work on any browser." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://schko.github.io/post/web-dev-django/" />
+<meta property="article:published_time" content="2020-01-20T12:53:20-05:00" />
+<meta property="article:modified_time" content="2020-01-20T12:53:20-05:00" />
+<meta itemprop="name" content="extending a python application using django">
+<meta itemprop="description" content="We recently demoed an eye tracking concept that uses gaze and pupil patterns to modify video in real time, but are in the process of making it work on any browser.">
+<meta itemprop="datePublished" content="2020-01-20T12:53:20-05:00" />
+<meta itemprop="dateModified" content="2020-01-20T12:53:20-05:00" />
+<meta itemprop="wordCount" content="452">
+
+
+
+<meta itemprop="keywords" content="web,python,software,development," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="extending a python application using django"/>
+<meta name="twitter:description" content="We recently demoed an eye tracking concept that uses gaze and pupil patterns to modify video in real time, but are in the process of making it work on any browser."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -289,68 +299,146 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">extending a python application using django</h1>
+      
+      <div class="post-meta">
+        <time datetime="2020-01-20" class="post-time">
+          2020-01-20
+        </time>
+        
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>We recently demoed an <a href="http://fractal.nyc/fovea">eye tracking concept</a> that uses gaze and pupil patterns to modify video in real time, but are in the process of making it work on any browser.</p>
+<p>This comes with challenges, including having communication channels between frontend (i.e. browser) and backend (i.e. Python). <a href="https://www.djangoproject.com/">Django</a> makes this process smooth, but comes with a steep learning curve if you are not familiar with software development.</p>
+<h1 id="a-helpful-tutorial">a helpful tutorial</h1>
+<p>If you face a similar challenge: <strong>expanding a Python application to work with a web interface,</strong> then I recommend you start with the <a href="https://channels.readthedocs.io/en/latest/tutorial/index.html">Django chat server application</a>.</p>
+<p>CodingEntrepreneur's <a href="https://www.youtube.com/watch?v=RVH05S1qab8">WebSockets walk-through</a> was especially useful if you want to understand how data is transferred throughout the Django framework.</p>
+<p>Some aspects we (so far) found most useful in this tutorial are:</p>
+<table>
+<thead>
+<tr>
+<th>concept</th>
+<th>definition</th>
+<th>what it's used for in the tutorial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>web server</td>
+<td><code>software or hardware dedicated to running satisfying World Wide Web client requests</code></td>
+<td>storage of web pages associated with running a chat room</td>
+</tr>
+<tr>
+<td>caching</td>
+<td><code>software component that stores data so that future requests for that data</code></td>
+<td>speeding up accessing images or chats already seen</td>
+</tr>
+<tr>
+<td>relational database</td>
+<td><code>set of formally described tables from which data can be accessed or reassembled</code></td>
+<td>storage of chats that can only be accessed by each user</td>
+</tr>
+<tr>
+<td>object-oriented python backend</td>
+<td><code>object's state changed only by it's behaviors, methods that actually validate and change the state</code></td>
+<td>easily readable and modifiable models that work with html and js frontend</td>
+</tr>
+<tr>
+<td>websockets</td>
+<td><code>computer communications protocol, providing full-duplex communication channels over a single TCP connection</code></td>
+<td>channels that allow transfer of data and commands between the front and backends</td>
+</tr>
+</tbody>
+</table>
+<h1 id="diagram-of-the-data-transfer">diagram of the data transfer</h1>
+<p>Below is a very rough diagram of how all the parts fit together for the chat application, but which applies to a large number of problems.</p>
+<p><img src="/img/chat_app_summary.jpg" alt="Chat app Django framework"></p>
+<h2 id="the-interesting-parts-from-the-diagram-above">the interesting parts (from the diagram above)</h2>
+<ol>
+<li>The viewer <strong>views</strong> file receives and adds to the <strong>Frontend</strong>, e.g. viewing a chat screen and submitting a message,</li>
+<li>The Python <strong>views.py</strong> file contributes to the HTML by loading a template, filling a context and returning an HttpResponse object that modifies the html,</li>
+<li>The HTML initializes and opens a websocket and defines its behavior (i.e. when it executes),</li>
+<li>Python communicates with the socket through the <strong>consumers.py</strong>,</li>
+<li>The user does something (e.g. submits a message) on the interface that is received by the consumers <strong>receive</strong> function,</li>
+<li>The receive function does something (e.g. modifies the message), and sends back a message using the <strong>receive</strong> message,</li>
+<li>The <strong>onmessage</strong> modifies the HTML in some way (e.g. posts the new message into a form that is viewable by the viewer).</li>
+</ol>
+<p>In this way, we get communication between a viewer, website, server, and storage (usually accessed and defined through a relational database in the <strong>models</strong> file).</p>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://schko.github.io/tags/web/">web</a>
+          <a href="http://schko.github.io/tags/python/">python</a>
+          <a href="http://schko.github.io/tags/software/">software</a>
+          <a href="http://schko.github.io/tags/development/">development</a>
           
-<section id="archive" class="archive">
-    <div class="archive-title">
-      <span class="archive-post-counter">
-          2 posts In Total
-      </span>
-    </div>
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/resources/">
+            <span class="next-text nav-default">hugo resources</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
-      <div class="collection-title">
-        <h2 class="archive-year">2020</h2>
-      </div>
-
-    <div class="archive-post">
-      <time datetime="2020-01-20" class="archive-post-time">
-        2020-01-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/web-dev-django/" class="archive-post-link">
-          extending a python application using django
-        </a>
-      </span>
-    </div>
-    
-      <div class="collection-title">
-        <h2 class="archive-year">2019</h2>
-      </div>
-
-    <div class="archive-post">
-      <time datetime="2019-12-20" class="archive-post-time">
-        2019-12-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/resources/" class="archive-post-link">
-          hugo resources
-        </a>
-      </span>
-    </div></section>
-
-
-
-
-
 
   
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-
-
-
 
         </div>
       </div>
