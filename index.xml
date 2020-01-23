@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Tue, 21 Jan 2020 14:49:07 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://schko.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -50,6 +50,74 @@
     </item>
     
     <item>
+      <title>Eye Tracking in Multimodal Data</title>
+      <link>http://schko.github.io/post/eeg-fmri-pupil-2/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/post/eeg-fmri-pupil-2/</guid>
+      
+        <description>&lt;p&gt;Part 2: Mainly on eye tracking and pupillometry data.&lt;/p&gt;
+&lt;h1 id=&#34;intention&#34;&gt;intention&lt;/h1&gt;
+&lt;p&gt;Controlling for eye-related artifacts in EEG is a standard protocol, so I wanted to compile a list of the sources of electrical activity that result in distortion of EEG signal.&lt;/p&gt;
+&lt;h1 id=&#34;we-may-not-need-to-remove-artifacts&#34;&gt;we may not need to remove artifacts&lt;/h1&gt;
+&lt;p&gt;I outlined in my last post a couple of examples using deep learning models to either &amp;ldquo;learn noise&amp;rdquo; in order to remove it, or utilize noise with the end goal of assisting classification. There are similarities in how researchers use the word &amp;ldquo;noise&amp;rdquo; to how words like &amp;ldquo;artifacts&amp;rdquo; or &amp;ldquo;distortions&amp;rdquo; are also used, in my opinion.&lt;/p&gt;
+&lt;p&gt;Including distortions in EEG may be essential to some research. A quick example of this is &lt;a href=&#34;https://github.com/tevisgehr/EEG-Classification&#34;&gt;Tevis Gher&#39;s project mentioned in the last post&lt;/a&gt;, where correction of blinking and other eye tracking related events would remove useful information that could aid in classification.&lt;/p&gt;
+&lt;p&gt;I just mean to note that aggressive filtering or thresholding when finding independent components can lead to cases where we remove brain activity that affects the system of interest (e.g. EEG) and another that produces &amp;ldquo;artifacts&amp;rdquo; (e.g. blinking) to the detriment of the goal of a study (e.g. decision-making in a visual task where activity in certain regions of the brain affect blinking rates). In the parenthesized example of blink rate, it may be important to not remove blink artifacts when studying attention in children with ADHD, since Caplan et al &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; showed it may be a critical discriminatory measure between ADHD and non-ADHD populations.&lt;/p&gt;
+&lt;h1 id=&#34;eye-related-artifacts&#34;&gt;eye related artifacts&lt;/h1&gt;
+&lt;p&gt;With that out of the way, I wanted to summarize the types of corrections that seem to be most common in EEG processing, related to eye tracking data. This is based on (and the quotes below derive from) a very nice, controlled study by Plöchl, Ossandón and König in 2012 &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;artifact&lt;/th&gt;
+&lt;th&gt;what is it&lt;/th&gt;
+&lt;th&gt;what causes it (quotes from Plöchl et al)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;corneo-retinal dipole movement&lt;/td&gt;
+&lt;td&gt;large ocular movements&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;orientation change of the eyeball and thus of the corneo-retinal dipole produced between the negatively charged retina and the positively charged cornea&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;blinks (eyelid-induced)&lt;/td&gt;
+&lt;td&gt;spontaneous or willful blinking&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;eyelid slides down over the cornea, which is positively charged with respect to the forehead. Thereby the lid acts like a “sliding electrode,” short-circuiting the cornea to the scalp and producing artifacts in the EEG signal&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;eyelid-saccades&lt;/td&gt;
+&lt;td&gt;saccade-accompanying ballistic eyelid movements&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;occur in synchrony with the rotation of the eyeball and therefore are not distinguishable from the corneo-retinal dipole offset in the raw data. During upward saccades, for instance, eyelid and eyeball move upwards with approximately the same speed. However, after the termination of both, eye- and eyelid saccades, the eyelid continues to slide more slowly for another 30–300 ms and produces a signal change that is observable particularly after upward saccades&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;saccadic spike potential&lt;/td&gt;
+&lt;td&gt;potential appearing right before saccade onset&lt;/td&gt;
+&lt;td&gt;depends on the type of eye movements. Characteristically, it&#39;s &lt;code&gt;a biphasic waveform, starting around 5ms prior to saccade onset and consisting ofa larger positive deflection followed by a smaller negative deflection&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;microsaccades&lt;/td&gt;
+&lt;td&gt;involuntary, small eye movements that occur during fixations&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;microsaccade-induced confounds in the EEG are mainly caused by spike potentials occurring at microsaccade onset, while orientation changes of the corneo-retinal dipole only play a minor role&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;correction-of-eye-artifacts&#34;&gt;correction of eye artifacts&lt;/h1&gt;
+&lt;p&gt;This will be covered in the next post.&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/0006322395003150&#34;&gt;https://www.sciencedirect.com/science/article/pii/0006322395003150&lt;/a&gt; &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pubmed/23087632&#34;&gt;https://www.ncbi.nlm.nih.gov/pubmed/23087632&lt;/a&gt; &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>EEG, fMRI, &amp; Eye Tracking</title>
       <link>http://schko.github.io/post/eeg-fmri-pupil/</link>
       <pubDate>Tue, 21 Jan 2020 14:49:07 -0500</pubDate>
@@ -59,7 +127,7 @@
         <description>&lt;p&gt;There is growing interest in multimodal, physiological data collection for the purposes of understanding decision-making, cognitive performance and designing brain computer interfaces.&lt;/p&gt;
 &lt;p&gt;Part 1: Mainly on EEG artifacts&lt;/p&gt;
 &lt;h1 id=&#34;summary-of-data-sources&#34;&gt;summary of data sources&lt;/h1&gt;
-&lt;p&gt;The source of EEG activity is post-synaptic activity of cortical pyrymidal cells, and glian cell activity measured at the scalp. fMRI is derived from the measurement of blood oxygen changes in different regions of the brain. Eye tracking is the primary tool for measuring pupillometry and gaze.&lt;/p&gt;
+&lt;p&gt;The source of EEG activity is post-synaptic activity of cortical pyramidal cells, and glial cell activity measured at the scalp. fMRI is derived from the measurement of blood oxygen changes in different regions of the brain. Eye tracking is the primary tool for measuring pupillometry and gaze.&lt;/p&gt;
 &lt;h1 id=&#34;where-each-excel&#34;&gt;where each excel&lt;/h1&gt;
 &lt;p&gt;Eye tracking excels in paradigms where:&lt;/p&gt;
 &lt;ol&gt;
@@ -70,7 +138,7 @@
 &lt;ol&gt;
 &lt;li&gt;temporal resolution of brain activity is important,&lt;/li&gt;
 &lt;li&gt;measuring &lt;strong&gt;reactivity to stimuli or events&lt;/strong&gt; of interest is necessary,&lt;/li&gt;
-&lt;li&gt;interacting with an interface using brain activitiy.&lt;/li&gt;
+&lt;li&gt;interacting with an interface using brain activity.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;fMRI excels where:&lt;/p&gt;
 &lt;ol&gt;
@@ -79,7 +147,7 @@
 &lt;/ol&gt;
 &lt;h1 id=&#34;artifact-removal-as-a-function-of-adding-on-data-sources&#34;&gt;artifact removal (as a function of adding on data sources)&lt;/h1&gt;
 &lt;p&gt;EEG appears to be the type of data that is, not only most prone to signal variations by itself, most effected from adding on other sources. For example, gradient artifacts that result from the fMRI scanner&#39;s magnetic field overwhelm the raw EEG signals in amplitude to the point where you cannot use the same EEG pipelines as you would in unimodal data collection. Abreu et al&#39;s review is a great resource for a summary of recent (but notably, non-deep learning) methods in removing the effects of gradient artifacts from EEG &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://schko.github.io/img/fig2_abreau.png&#34; alt=&#34;A visualization of how EEG can be bastarized with fMRI input, without artifact removal and filtering.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://schko.github.io/img/fig2_abreau.png&#34; alt=&#34;A visualization of how EEG can be bastardized with fMRI input, without artifact removal and filtering.&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I couldn&#39;t help but feel lost in the signal processing background literature, but it was interesting to take a step back to read a study where artifacts and noise filtering in EEG, for the most part, wasn&#39;t really needed. It was a part of a &lt;a href=&#34;https://github.com/tevisgehr/EEG-Classification&#34;&gt;poster presentation by Tevis Gher&lt;/a&gt; at UNL, and it highlights the potential in using deep learning techniques to avoid tedious signal processing pipelines, &lt;strong&gt;but only for classification problems&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The task is a discriminatory one, where a system classifies whether an EEG waveform derived from an individual who is visualizing a familiar vs. unfamiliar motor-based task. In this case, it&#39;s not really important to filter noise, artifacts, etc. A convolutional system is capable of ignoring variations in the signal that are not relevant to the task at hand. In some cases, the results used in the last stage (2D visualizations below) probably, meaningfully, use artifacts that may be problematic in other contexts. For example, filtering blinking may be preferred in most EEG contexts, but it may not be an &amp;ldquo;artifact&amp;rdquo; in a classification task such as this, if participants tend to blink more when imagining themselves doing a familiar task.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://schko.github.io/img/eeg_architecture.png&#34; alt=&#34;A classification network used by Gher.&#34;&gt;&lt;/p&gt;

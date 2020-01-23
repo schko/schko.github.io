@@ -331,7 +331,7 @@ Part 1: Mainly on EEG artifacts"/>
       <p>There is growing interest in multimodal, physiological data collection for the purposes of understanding decision-making, cognitive performance and designing brain computer interfaces.</p>
 <p>Part 1: Mainly on EEG artifacts</p>
 <h1 id="summary-of-data-sources">summary of data sources</h1>
-<p>The source of EEG activity is post-synaptic activity of cortical pyrymidal cells, and glian cell activity measured at the scalp. fMRI is derived from the measurement of blood oxygen changes in different regions of the brain. Eye tracking is the primary tool for measuring pupillometry and gaze.</p>
+<p>The source of EEG activity is post-synaptic activity of cortical pyramidal cells, and glial cell activity measured at the scalp. fMRI is derived from the measurement of blood oxygen changes in different regions of the brain. Eye tracking is the primary tool for measuring pupillometry and gaze.</p>
 <h1 id="where-each-excel">where each excel</h1>
 <p>Eye tracking excels in paradigms where:</p>
 <ol>
@@ -342,7 +342,7 @@ Part 1: Mainly on EEG artifacts"/>
 <ol>
 <li>temporal resolution of brain activity is important,</li>
 <li>measuring <strong>reactivity to stimuli or events</strong> of interest is necessary,</li>
-<li>interacting with an interface using brain activitiy.</li>
+<li>interacting with an interface using brain activity.</li>
 </ol>
 <p>fMRI excels where:</p>
 <ol>
@@ -351,7 +351,7 @@ Part 1: Mainly on EEG artifacts"/>
 </ol>
 <h1 id="artifact-removal-as-a-function-of-adding-on-data-sources">artifact removal (as a function of adding on data sources)</h1>
 <p>EEG appears to be the type of data that is, not only most prone to signal variations by itself, most effected from adding on other sources. For example, gradient artifacts that result from the fMRI scanner's magnetic field overwhelm the raw EEG signals in amplitude to the point where you cannot use the same EEG pipelines as you would in unimodal data collection. Abreu et al's review is a great resource for a summary of recent (but notably, non-deep learning) methods in removing the effects of gradient artifacts from EEG <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
-<p><img src="/img/fig2_abreau.png" alt="A visualization of how EEG can be bastarized with fMRI input, without artifact removal and filtering."></p>
+<p><img src="/img/fig2_abreau.png" alt="A visualization of how EEG can be bastardized with fMRI input, without artifact removal and filtering."></p>
 <p>I couldn't help but feel lost in the signal processing background literature, but it was interesting to take a step back to read a study where artifacts and noise filtering in EEG, for the most part, wasn't really needed. It was a part of a <a href="https://github.com/tevisgehr/EEG-Classification">poster presentation by Tevis Gher</a> at UNL, and it highlights the potential in using deep learning techniques to avoid tedious signal processing pipelines, <strong>but only for classification problems</strong>.</p>
 <p>The task is a discriminatory one, where a system classifies whether an EEG waveform derived from an individual who is visualizing a familiar vs. unfamiliar motor-based task. In this case, it's not really important to filter noise, artifacts, etc. A convolutional system is capable of ignoring variations in the signal that are not relevant to the task at hand. In some cases, the results used in the last stage (2D visualizations below) probably, meaningfully, use artifacts that may be problematic in other contexts. For example, filtering blinking may be preferred in most EEG contexts, but it may not be an &ldquo;artifact&rdquo; in a classification task such as this, if participants tend to blink more when imagining themselves doing a familiar task.</p>
 <p><img src="/img/eeg_architecture.png" alt="A classification network used by Gher."></p>
@@ -386,6 +386,19 @@ Part 1: Mainly on EEG artifacts"/>
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/eeg-fmri-pupil-2/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Eye Tracking in Multimodal Data</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         
           <a class="next" href="/post/web-dev-django/">
             <span class="next-text nav-default">extending a python application using django</span>

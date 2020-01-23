@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Tue, 21 Jan 2020 14:49:07 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://schko.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>eeg</title>
       <link>http://schko.github.io/tags/eeg/</link>
-      <pubDate>Tue, 21 Jan 2020 14:49:07 -0500</pubDate>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>http://schko.github.io/tags/eeg/</guid>
       <description></description>
@@ -24,9 +24,18 @@
     <item>
       <title>eye tracking</title>
       <link>http://schko.github.io/tags/eye-tracking/</link>
-      <pubDate>Tue, 21 Jan 2020 14:49:07 -0500</pubDate>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>http://schko.github.io/tags/eye-tracking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pupillometry</title>
+      <link>http://schko.github.io/tags/pupillometry/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/tags/pupillometry/</guid>
       <description></description>
     </item>
     
@@ -36,15 +45,6 @@
       <pubDate>Tue, 21 Jan 2020 14:49:07 -0500</pubDate>
       
       <guid>http://schko.github.io/tags/fmri/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pupillometry</title>
-      <link>http://schko.github.io/tags/pupillometry/</link>
-      <pubDate>Tue, 21 Jan 2020 14:49:07 -0500</pubDate>
-      
-      <guid>http://schko.github.io/tags/pupillometry/</guid>
       <description></description>
     </item>
     

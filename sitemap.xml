@@ -9,20 +9,55 @@
   
   <url>
     <loc>http://schko.github.io/tags/eeg/</loc>
-    <lastmod>2020-01-21T14:49:07-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://schko.github.io/post/eeg-fmri-pupil/</loc>
-    <lastmod>2020-01-21T14:49:07-05:00</lastmod>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://schko.github.io/tags/eye-tracking/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://schko.github.io/post/eeg-fmri-pupil-2/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://schko.github.io/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://schko.github.io/post/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://schko.github.io/tags/pupillometry/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://schko.github.io/tags/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://schko.github.io/post/eeg-fmri-pupil/</loc>
     <lastmod>2020-01-21T14:49:07-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -36,35 +71,7 @@
   </url>
   
   <url>
-    <loc>http://schko.github.io/</loc>
-    <lastmod>2020-01-21T14:49:07-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://schko.github.io/post/</loc>
-    <lastmod>2020-01-21T14:49:07-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://schko.github.io/tags/pupillometry/</loc>
-    <lastmod>2020-01-21T14:49:07-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://schko.github.io/tags/signal/</loc>
-    <lastmod>2020-01-21T14:49:07-05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://schko.github.io/tags/</loc>
     <lastmod>2020-01-21T14:49:07-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
