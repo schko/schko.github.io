@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://schko.github.io/tags/eeg/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>helpful (random) resources when learning eeg</title>
+      <link>http://schko.github.io/post/eeg-resources/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/post/eeg-resources/</guid>
+      <description>&lt;p&gt;Part 3: Links and relevant literature relating to EEG in general and artifact correction.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>eye tracking in multimodal data</title>

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://schko.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -46,6 +46,60 @@
 &lt;a href=&#34;mailto:munna@fractal.nyc&#34;&gt;Email&lt;/a&gt; |
 &lt;a href=&#34;https://github.com/schko&#34;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 </description>
+      
+    </item>
+    
+    <item>
+      <title>helpful (random) resources when learning eeg</title>
+      <link>http://schko.github.io/post/eeg-resources/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/post/eeg-resources/</guid>
+      
+        <description>&lt;p&gt;Part 3: Links and relevant literature relating to EEG in general and artifact correction.&lt;/p&gt;
+&lt;h1 id=&#34;links&#34;&gt;links&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;The primary resource I found helpful is a &lt;a href=&#34;https://sccn.ucsd.edu/wiki/EEGLAB#The_EEGLAB_Tutorial_Outline&#34;&gt;tutorial from EEGLAB&lt;/a&gt;. Specifically, the single subject data processing which has a broad overview of processing EEG data.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;images&#34;&gt;images&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Headmap: &lt;a href=&#34;https://www.researchgate.net/figure/Head-map-This-figure-depicts-the-organization-of-the-EEG-electrode-sites_fig1_316856333&#34;&gt;https://www.researchgate.net/figure/Head-map-This-figure-depicts-the-organization-of-the-EEG-electrode-sites_fig1_316856333&lt;/a&gt;
+&lt;img src=&#34;https://www.researchgate.net/profile/Eileen_Haebig/publication/316856333/figure/fig1/AS:505502740500480@1497532653203/Head-map-This-figure-depicts-the-organization-of-the-EEG-electrode-sites.png&#34; alt=&#34;Headmap&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Removing linear trends: &lt;a href=&#34;https://www.mathworks.com/help/matlab/data_analysis/detrending-data.html&#34;&gt;https://www.mathworks.com/help/matlab/data_analysis/detrending-data.html&lt;/a&gt;
+&lt;img src=&#34;https://www.mathworks.com/help/examples/matlab/win64/RemovingLinearTrendsFromDataExample_02.png&#34; alt=&#34;removing trends&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Data averaging methods and the visualizations they yeild: &lt;a href=&#34;https://sccn.ucsd.edu/wiki/Chapter_06:_Data_Averaging&#34;&gt;https://sccn.ucsd.edu/wiki/Chapter_06:_Data_Averaging&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;artifact-removal-and-correction&#34;&gt;artifact removal and correction&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Removing a mean &lt;strong&gt;baseline&lt;/strong&gt; value from each epoch is useful when baseline differences between data epochs (e.g., those arising from low frequency drifts or artifacts) are present. These are not meaningfully interpretable, but if left in the data could skew the data analysis.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Removing &lt;strong&gt;linear trends&lt;/strong&gt; through high-pass filtering: &lt;a href=&#34;https://www.mathworks.com/help/matlab/data_analysis/detrending-data.html&#34;&gt;https://www.mathworks.com/help/matlab/data_analysis/detrending-data.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ICA&lt;/strong&gt; can be used to decompose data from either average reference, common reference, or bipolar reference channels &amp;ndash; or from more than one of these types at once. However, plotting single scalp maps requires that all channels use either the same common reference or the same average reference.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;EEG &lt;strong&gt;reference choice&lt;/strong&gt; has different effect on outcomes: &lt;a href=&#34;https://sapienlabs.org/effect-of-eeg-reference-choice-on-outcomes/&#34;&gt;https://sapienlabs.org/effect-of-eeg-reference-choice-on-outcomes/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Single trial analyses&lt;/strong&gt;: &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3210509/&#34;&gt;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3210509/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;other-pointers&#34;&gt;other pointers&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;EEGLAB wiki on electrode locations and how signal is reported:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NOTE: Equating &amp;lsquo;channel locations&amp;rsquo; with (single) electrode locations only makes sense when all channels use the same &amp;lsquo;reference channel.&amp;rsquo; An EEG channel signal is always the difference&amp;rsquo; between voltages at two (or more) electrodes &amp;ndash; typically some electrode &amp;ldquo;referred to&amp;rdquo; a reference channel (or channel combination. Equating the signal &amp;lsquo;channel location&amp;rsquo; to the location of one of the contributing electrodes is quite imprecise, as the channel must be equally sensitive to potentials flowing to either of its two (or more) contributing scalp electrodes.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
       
     </item>
     

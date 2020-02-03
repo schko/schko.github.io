@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>artifact correction on Machine Learning and Video</title>
+    <link>http://schko.github.io/tags/artifact-correction/</link>
+    <description>Recent content in artifact correction on Machine Learning and Video</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Sharath Koorathota</copyright>
+    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://schko.github.io/tags/artifact-correction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>helpful (random) resources when learning eeg</title>
+      <link>http://schko.github.io/post/eeg-resources/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/post/eeg-resources/</guid>
+      <description>&lt;p&gt;Part 3: Links and relevant literature relating to EEG in general and artifact correction.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

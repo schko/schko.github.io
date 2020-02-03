@@ -8,8 +8,43 @@
   </url>
   
   <url>
+    <loc>http://schko.github.io/tags/artifact-correction/</loc>
+    <lastmod>2020-02-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://schko.github.io/tags/eeg/</loc>
-    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://schko.github.io/post/eeg-resources/</loc>
+    <lastmod>2020-02-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://schko.github.io/</loc>
+    <lastmod>2020-02-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://schko.github.io/post/</loc>
+    <lastmod>2020-02-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://schko.github.io/tags/</loc>
+    <lastmod>2020-02-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -29,28 +64,7 @@
   </url>
   
   <url>
-    <loc>http://schko.github.io/</loc>
-    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://schko.github.io/post/</loc>
-    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://schko.github.io/tags/pupillometry/</loc>
-    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://schko.github.io/tags/</loc>
     <lastmod>2020-01-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
