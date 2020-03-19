@@ -63,7 +63,7 @@
 &lt;li&gt;The dataset I want to look at is increasing in volume (e.g. sample-by-sample data vs. aggregated values),&lt;/li&gt;
 &lt;li&gt;I want to run multiple notebook sessions without my laptop/lab machine dying or being disconnected from a tool like Google Colab,&lt;/li&gt;
 &lt;li&gt;Model runs and debugging is taking a long time due to above points,&lt;/li&gt;
-&lt;li&gt;I want to be able to experiement with state-of-the-art tools to allow me to delve deeper into my data (e.g. computer vision or NLP tools to allow interpretability from raw data)&lt;/li&gt;
+&lt;li&gt;I want to be able to experiment with state-of-the-art tools to allow me to delve deeper into my data (e.g. computer vision or NLP tools to allow interpretability from raw data)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;If you relate to any of the above, you may find this post useful.&lt;/p&gt;
 &lt;h1 id=&#34;background-reading&#34;&gt;background reading&lt;/h1&gt;
@@ -94,7 +94,7 @@
 &lt;p&gt;It&#39;s more complicated than this, since researchers now connect local/Colab-type systems to access cloud APIs, send and receive data from multiple storage sources, and use a whole host of other tools I probably haven&#39;t heard of. For me, generally, I think visualization summarizes the workflow.&lt;/p&gt;
 &lt;h1 id=&#34;advantages-to-google-cloud&#34;&gt;advantages to google cloud&lt;/h1&gt;
 &lt;ol&gt;
-&lt;li&gt;Faster storage access: buckets are extremely efficient, and I found downloading a 2gb file from a bucket in Colab took over 4 minutes, whereas my default TF 2.0 AI Platform Notebook took 5 seconds. This is because of multiple CPUs available for cheap on Cloud,&lt;/li&gt;
+&lt;li&gt;Faster storage access: buckets are extremely efficient, and I found downloading a 2 GB file from a bucket in Colab took over 4 minutes, whereas my default TF 2.0 AI Platform Notebook took 5 seconds. This is because of multiple CPUs available for cheap on Cloud,&lt;/li&gt;
 &lt;li&gt;Stability: machines more rarely bug out on Cloud, since you can often allocate a virtual machine with slightly more resources than you will use,&lt;/li&gt;
 &lt;li&gt;Access to Cloud APIs: yes, this is available locally and through Google Colab, but the Computer Vision or NLP APIs are just easier to use and work smoother within a Google Cloud VM,&lt;/li&gt;
 &lt;li&gt;Scaling: you can more easily allocate CPUs, GPUs, TPUs, change server sites, or have end-to-end pipelines to scale existing data down the road within Cloud,&lt;/li&gt;
@@ -102,7 +102,7 @@
 &lt;/ol&gt;
 &lt;h1 id=&#34;scaling&#34;&gt;scaling&lt;/h1&gt;
 &lt;p&gt;The rest of this post will describe specific steps and references as I transition from higher-level tools designed for more broadly-applicable data workflows (&lt;strong&gt;green blocks&lt;/strong&gt;) to lower-level counterparts on Google Cloud (&lt;strong&gt;red blocks&lt;/strong&gt;). Please feel free to share your thoughts via email if you have suggestions!&lt;/p&gt;
-&lt;h3 id=&#34;setup-google-bucket-and-transfer-data&#34;&gt;setup google bucket and transfer data&lt;/h3&gt;
+&lt;h3 id=&#34;google-bucket-setup-and-initial-data-transfer&#34;&gt;google bucket setup and initial data transfer&lt;/h3&gt;
 &lt;p&gt;I would recommend going all in and setting up Google Storage buckets. You can access data from Google Drive from within AI Platform, Colab and even locally.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://cloud.google.com/storage/docs/creating-buckets&#34;&gt;Create a storage bucket&lt;/a&gt;,&lt;/li&gt;
@@ -110,7 +110,7 @@
 &lt;li&gt;&lt;a href=&#34;https://cloud.google.com/storage/docs/gsutil/commands/rsync&#34;&gt;Use rsync commands as needed to sync this folder&lt;/a&gt;. You can get fancy with this and have a script that periodically syncs a bucket with you Drive folder (if you&#39;re using Drive to collaborate).&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; storage cost is pretty cheap, but may add up depending on how large your bucket is.&lt;/p&gt;
-&lt;h3 id=&#34;ai-platform-notebook-setup&#34;&gt;ai platform notebook (setup)&lt;/h3&gt;
+&lt;h3 id=&#34;ai-platform-notebook-setup&#34;&gt;ai platform notebook setup&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://cloud.google.com/ai-platform/notebooks/docs/create-new#create_an_instance_with_default_properties&#34;&gt;Follow the Cloud tutorial to setup a notebook instance&lt;/a&gt;,&lt;/li&gt;
 &lt;/ul&gt;
@@ -120,7 +120,7 @@
 &lt;p&gt;I found it helpful to only leave notebooks within Github. All data should be downloaded from Google cloud, and analysis should be able to be done from scratching using the code in notebooks. This may be annoying, but I&#39;ve found it helpful to stick to it for replicability.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://help.github.com/en/github/getting-started-with-github/create-a-repo&#34;&gt;Create a new repo&lt;/a&gt;,&lt;/li&gt;
-&lt;li&gt;You can simply go to File -&amp;gt; Clone a Repo to clone a private (prompts login) or public repo. If you need more help with this, &lt;a href=&#34;https://cloud.google.com/ai-platform/notebooks/docs/save-to-github&#34;&gt;see here&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;You can simply go to &lt;em&gt;File -&amp;gt; Clone a Repo&lt;/em&gt; to clone a private (prompts login) or public repo. If you need more help with this, &lt;a href=&#34;https://cloud.google.com/ai-platform/notebooks/docs/save-to-github&#34;&gt;see here&lt;/a&gt;,&lt;/li&gt;
 &lt;li&gt;Create your first notebook to import data.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;data-transfer-protocol&#34;&gt;data transfer protocol&lt;/h3&gt;
@@ -160,7 +160,7 @@
 &lt;p&gt;&lt;a href=&#34;https://cloud.google.com/storage/docs/quickstart-gsutil#create&#34;&gt;See here for more interactions with the bucket&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;analysis&#34;&gt;analysis&lt;/h3&gt;
 &lt;p&gt;Now that we have some data processed in the AI platform, you may be interested in analyzing the results. You can either do this in the same notebook within the AI Platform, or on Colab.&lt;/p&gt;
-&lt;p&gt;I prefer to always have a link to Colab. The &lt;a href=&#34;https://colab.research.google.com/drive/1Xc8E8mKC4MBvQ6Sw6akd_X5Z1cmHSNca&#34;&gt;aforementioned sample Colab&lt;/a&gt; has code that will transfer files between buckets and local Drive locations. It&#39;s highly dependant on your use case what you will transfer, but the relevant portions you want are below.&lt;/p&gt;
+&lt;p&gt;I prefer to always have a link to Colab. The &lt;a href=&#34;https://colab.research.google.com/drive/1Xc8E8mKC4MBvQ6Sw6akd_X5Z1cmHSNca&#34;&gt;aforementioned sample Colab&lt;/a&gt; has code that will transfer files between buckets and local Drive locations. It&#39;s highly dependent on your use case what you will transfer, but the relevant portions you want are below.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; google.colab &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; drive
 drive&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mount(&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/content/drive&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;)
 
