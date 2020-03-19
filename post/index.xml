@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://schko.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>scaling machine learning projects</title>
+      <link>http://schko.github.io/post/google-cloud/</link>
+      <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/post/google-cloud/</guid>
+      <description>&lt;p&gt;A guide to scaling machine learning projects using Google&#39;s tools.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>helpful (random) resources when learning eeg</title>
