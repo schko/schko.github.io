@@ -58,7 +58,7 @@
       
         <description>&lt;p&gt;There&#39;s been some great progress with &lt;a href=&#34;http://www.foveainsights.com&#34;&gt;Fovea&lt;/a&gt;, a platform using remote, webcam-based eye tracking for verification and interaction.&lt;/p&gt;
 &lt;h1 id=&#34;overview&#34;&gt;overview&lt;/h1&gt;
-&lt;p&gt;Fovea is a web platform that enables interactive content delivery through analyzing viewing patterns. It&#39;s an initiative Patrick Adelman and I started earlier this year, and we recently published a series of blog posts with some major updates:&lt;/p&gt;
+&lt;p&gt;Fovea is a web platform that enables interactive content delivery through analyzing viewing patterns. It&#39;s an initiative &lt;a href=&#34;https://www.patrickadelman.com/&#34;&gt;Patrick Adelman&lt;/a&gt; and I started earlier this year, and we recently published a series of blog posts with some major updates:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://medium.com/fovea/an-intro-to-fovea-using-eye-tracking-for-interactive-content-delivery-e55ed26bd538&#34;&gt;Overview of the platform&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://medium.com/fovea/interactive-remote-training-using-eye-tracking-8a1a15973029&#34;&gt;Fovea&#39;s first application in improving the way employees are trained remotely&lt;/a&gt;&lt;/li&gt;
