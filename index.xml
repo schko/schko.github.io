@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Wed, 18 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://schko.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -46,6 +46,51 @@
 &lt;a href=&#34;mailto:munna@fractal.nyc&#34;&gt;Email&lt;/a&gt; |
 &lt;a href=&#34;https://github.com/schko&#34;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 </description>
+      
+    </item>
+    
+    <item>
+      <title>remote training with eye tracking</title>
+      <link>http://schko.github.io/post/fovea-training/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/post/fovea-training/</guid>
+      
+        <description>&lt;p&gt;There&#39;s been some great progress with &lt;a href=&#34;http://www.foveainsights.com&#34;&gt;Fovea&lt;/a&gt;, a platform using remote, webcam-based eye tracking for verification and interaction.&lt;/p&gt;
+&lt;h1 id=&#34;overview&#34;&gt;overview&lt;/h1&gt;
+&lt;p&gt;Fovea is a web platform that enables interactive content delivery through analyzing viewing patterns. It&#39;s an initiative Patrick Adelman and I started earlier this year, and we recently published a series of blog posts with some major updates:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/fovea/an-intro-to-fovea-using-eye-tracking-for-interactive-content-delivery-e55ed26bd538&#34;&gt;Overview of the platform&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/fovea/interactive-remote-training-using-eye-tracking-8a1a15973029&#34;&gt;Fovea&#39;s first application in improving the way employees are trained remotely&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/fovea/the-future-of-content-delivery-over-the-web-using-eye-tracking-565ae042c2b2&#34;&gt;The future of Fovea, our upcoming partnership with AP and in market research&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The following is a condensed version of our progress and application in the field of employee training.&lt;/p&gt;
+&lt;h1 id=&#34;the-challenge&#34;&gt;the challenge&lt;/h1&gt;
+&lt;p&gt;In the first stage, we&#39;re making learning more interactive. We&#39;re doing this through combining object-level data with real-time eye tracking.
+&lt;img src=&#34;http://schko.github.io/img/fovea/how-it-works.jpeg&#34; alt=&#34;Fovea how it works&#34;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Content is uploaded to the cloud by the user.&lt;/strong&gt; This could be video, training documents, graphics, photos, or any other form of media. State-of-the-art processing algorithms are used to analyze the content and prepare it for viewing.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Viewers enable the standard webcam on their laptop&lt;/strong&gt; or stand in front of a display with a simple camera. No special software is needed, Fovea can run entirely through a web browser. If desired, Fovea can verify which user is currently watching — for cases of remote training or online education, this will be useful.&lt;/li&gt;
+&lt;li&gt;While the viewer is viewing the content, &lt;strong&gt;Fovea tracks and processes their eye movements in real time&lt;/strong&gt;, in connection with the analysis from step 1. This allows Fovea to understand exactly what is drawing a viewer’s attention and serve content based on that.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Analytics are generated&lt;/strong&gt; for the user to determine which content was effective and how to better design viewer experiences going forward.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;training-pilot-study&#34;&gt;training pilot study&lt;/h1&gt;
+&lt;p&gt;We selected a &lt;a href=&#34;https://www.youtube.com/watch?v=BRx_pCaMKI0&amp;amp;feature=youtu.be&#34;&gt;video on OSHA safety signs&lt;/a&gt; that are commonly encountered in manufacturing facilities, and specified areas of interest (AOIs) that a training manager may label as important.&lt;/p&gt;
+&lt;p&gt;Next, we recruited a small number of participants online through MTurk, who viewed the training video and answered quizzes, triggered at various times. Each personalized quiz question was based on the AOI they viewed least. In other words, if important regions in the video weren’t attended to as much as they should have, participants were presented with a multiple-choice quiz that drew their attention to areas that were labeled as important.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://schko.github.io/img/fovea/training.gif&#34; alt=&#34;Components of the training experience&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Eye tracking was done through the participants’ web camera, after detection of the eye region, shown at all times to the participants so they were aware of what data was being analyzed. We did not need to store any image data, and only used the frame-by-frame footage to extrapolate eye tracking coordinates client-side.&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;results&lt;/h2&gt;
+&lt;p&gt;We were initially worried about the problems posed by the variety of environmental effectors on the quality of eye tracking data, e.g. poor lighting, laptop setup. However, we found that our eye detector was able to detect the eye region with high confidence (&amp;gt; 85% of the time), and the majority of samples (&amp;gt;74%) detected that viewers were looking at the video region.&lt;/p&gt;
+&lt;p&gt;Next, I was very curious about how well our dynamic quiz performance corresponded with looking time. We&#39;re not publishing these results anytime soon since it&#39;s just a feasibility study, but we were encouraged to see that we not only were able to present quiz questions based on viewed regions, in real time, but this actually related to how well participants performed on the assessments.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://schko.github.io/img/fovea/attention-retention.png&#34; alt=&#34;Dynamic quiz performance vs. eye tracking&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;interactive-viewing&#34;&gt;interactive viewing&lt;/h2&gt;
+&lt;p&gt;The novelty of Fovea relies on using eye tracking in real time to effect content delivery. In this application, the quiz questions were personalized to each viewer, and the question related to an AOI that they viewed &lt;strong&gt;least&lt;/strong&gt; in the preceding section of the video. In the image below, sections are labeled &lt;em&gt;&lt;strong&gt;Danger, Warning, Caution, Notice and General Safety&lt;/strong&gt;&lt;/em&gt;, and the selected sequence of quiz questions depended on AOIs that were viewed least (red border).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://schko.github.io/img/fovea/quiz-sequence.png&#34; alt=&#34;Dynamic quiz performance vs. eye tracking&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Through presenting assessments dynamically, we guided viewers to paying attention to those AOIs that were quizzed on ~ 7% more of the time in the subsequent region. This type of interactivity is valuable in learning. You can read more &lt;a href=&#34;https://medium.com/fovea/the-future-of-content-delivery-over-the-web-using-eye-tracking-565ae042c2b2&#34;&gt;on our full post&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;whats-next&#34;&gt;what&#39;s next?&lt;/h2&gt;
+&lt;p&gt;Next, we&#39;re partnering with the Associated Press to present news content interactively. This is something I&#39;m very passionate about, every time I have to immediately close or mute a video on a news website since it never presents what I want to see. Inconvenience aside, interactive news content delivery can makes facts more engaging and personalized. Below is a preview of what you can expect: object-specific data is paired with real-time eye tracking to automate editing.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://schko.github.io/img/fovea/ap-delivery.png&#34; alt=&#34;News content delivery through Fovea&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Read more about our future goals &lt;a href=&#34;https://medium.com/fovea/the-future-of-content-delivery-over-the-web-using-eye-tracking-565ae042c2b2&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
       
     </item>
     

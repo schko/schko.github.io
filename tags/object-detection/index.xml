@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cloud services on Machine Learning and Video</title>
-    <link>http://schko.github.io/tags/cloud-services/</link>
-    <description>Recent content in cloud services on Machine Learning and Video</description>
+    <title>object detection on Machine Learning and Video</title>
+    <link>http://schko.github.io/tags/object-detection/</link>
+    <description>Recent content in object detection on Machine Learning and Video</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
     <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://schko.github.io/tags/cloud-services/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://schko.github.io/tags/object-detection/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>http://schko.github.io/post/fovea-training/</guid>
       <description>&lt;p&gt;There&#39;s been some great progress with &lt;a href=&#34;http://www.foveainsights.com&#34;&gt;Fovea&lt;/a&gt;, a platform using remote, webcam-based eye tracking for verification and interaction.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>scaling machine learning projects</title>
-      <link>http://schko.github.io/post/google-cloud/</link>
-      <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://schko.github.io/post/google-cloud/</guid>
-      <description>&lt;p&gt;A guide to scaling machine learning projects using Google&#39;s tools.&lt;/p&gt;</description>
     </item>
     
   </channel>

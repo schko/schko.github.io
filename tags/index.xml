@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Wed, 18 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://schko.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,36 @@
     <item>
       <title>cloud services</title>
       <link>http://schko.github.io/tags/cloud-services/</link>
-      <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>http://schko.github.io/tags/cloud-services/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>eye tracking</title>
+      <link>http://schko.github.io/tags/eye-tracking/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/tags/eye-tracking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fovea</title>
+      <link>http://schko.github.io/tags/fovea/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/tags/fovea/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>object detection</title>
+      <link>http://schko.github.io/tags/object-detection/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/tags/object-detection/</guid>
       <description></description>
     </item>
     
@@ -54,15 +81,6 @@
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>http://schko.github.io/tags/eeg/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>eye tracking</title>
-      <link>http://schko.github.io/tags/eye-tracking/</link>
-      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://schko.github.io/tags/eye-tracking/</guid>
       <description></description>
     </item>
     
