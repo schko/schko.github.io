@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>remote training with eye tracking - Machine Learning and Video</title>
+  <title>embeddings layers and dense connections - Machine Learning and Video</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Munna" />
-  <meta name="description" content="There&#39;s been some great progress with Fovea, a platform using remote, webcam-based eye tracking for verification and interaction.
+  <meta name="description" content="On the relatedness between embeddings and dense connections.
 " />
 
   <meta name="keywords" content="video, creative, agency, production, machine learning" />
@@ -36,7 +36,7 @@
 <meta name="generator" content="Hugo 0.62.2" />
 
 
-<link rel="canonical" href="http://schko.github.io/post/fovea-training/" />
+<link rel="canonical" href="http://schko.github.io/post/embeddings-fcn/" />
 
 
 
@@ -60,23 +60,23 @@
 
 
 
-<meta property="og:title" content="remote training with eye tracking" />
-<meta property="og:description" content="There&#39;s been some great progress with Fovea, a platform using remote, webcam-based eye tracking for verification and interaction." />
+<meta property="og:title" content="embeddings layers and dense connections" />
+<meta property="og:description" content="On the relatedness between embeddings and dense connections." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://schko.github.io/post/fovea-training/" />
-<meta property="article:published_time" content="2020-07-02T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-07-02T00:00:00+00:00" />
-<meta itemprop="name" content="remote training with eye tracking">
-<meta itemprop="description" content="There&#39;s been some great progress with Fovea, a platform using remote, webcam-based eye tracking for verification and interaction.">
-<meta itemprop="datePublished" content="2020-07-02T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-07-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="769">
+<meta property="og:url" content="http://schko.github.io/post/embeddings-fcn/" />
+<meta property="article:published_time" content="2020-07-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-11T00:00:00+00:00" />
+<meta itemprop="name" content="embeddings layers and dense connections">
+<meta itemprop="description" content="On the relatedness between embeddings and dense connections.">
+<meta itemprop="datePublished" content="2020-07-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-07-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1309">
 
 
 
-<meta itemprop="keywords" content="eye tracking,object detection,cloud services,fovea," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="remote training with eye tracking"/>
-<meta name="twitter:description" content="There&#39;s been some great progress with Fovea, a platform using remote, webcam-based eye tracking for verification and interaction."/>
+<meta itemprop="keywords" content="machine learning,neural networks,embeddings," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="embeddings layers and dense connections"/>
+<meta name="twitter:description" content="On the relatedness between embeddings and dense connections."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -302,11 +302,11 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">remote training with eye tracking</h1>
+      <h1 class="post-title">embeddings layers and dense connections</h1>
       
       <div class="post-meta">
-        <time datetime="2020-07-02" class="post-time">
-          2020-07-02
+        <time datetime="2020-07-11" class="post-time">
+          2020-07-11
         </time>
         
         
@@ -324,41 +324,136 @@
 
     
     <div class="post-content">
-      <p>There's been some great progress with <a href="http://www.foveainsights.com">Fovea</a>, a platform using remote, webcam-based eye tracking for verification and interaction.</p>
-<h1 id="overview">overview</h1>
-<p>Fovea is a web platform that enables interactive content delivery through analyzing viewing patterns. It's an initiative <a href="https://www.patrickadelman.com/">Patrick Adelman</a> and I started earlier this year, and we recently published a series of blog posts with some major updates:</p>
+      <p>On the relatedness between embeddings and dense connections.</p>
+
+<h1 id="the-question">the question</h1>
+
+<p>Embedding layers are extensively used in language learning and recently we <a href="https://dl.acm.org/doi/abs/10.1145/3379157.3391653?casa_token=ibtiNK3KW4sAAAAA%3AQNuOsVK-mCEZkfsurtsM9FF35O9CnXCrB73FOQixHTToXBUNhJbBGfIKM2QUYz0uRsdE2f_5u31kAQ">shared results</a> showing improvements in prediction when applying them to sequences of categorical data. There is a nagging question, though, on whether they're really different from dense networks where weights appear to be learned the same way, and whether we avoid any costly operations in most cases.</p>
+
+<h1 id="why-embeddings">why embeddings</h1>
+
+<p>The point of embeddings is simply finding quantitative representations of a large number of categories in their contribution to classification of prediction. For example, in the word representation problem where we want to know what word follows <em>ants</em> in a sentence:</p>
+
 <ol>
-<li><a href="https://medium.com/fovea/an-intro-to-fovea-using-eye-tracking-for-interactive-content-delivery-e55ed26bd538">Overview of the platform</a></li>
-<li><a href="https://medium.com/fovea/interactive-remote-training-using-eye-tracking-8a1a15973029">Fovea's first application in improving the way employees are trained remotely</a></li>
-<li><a href="https://medium.com/fovea/the-future-of-content-delivery-over-the-web-using-eye-tracking-565ae042c2b2">The future of Fovea, our upcoming partnership with AP and in market research</a></li>
+<li><strong>input</strong> is a one-hot vector representing the input word (e.g. ants),</li>
+<li>hidden layer of variable number of dense nodes (the, learned lookup table),</li>
+<li>a softmax layer that forces a probability distribution,</li>
+<li><strong>output</strong> is a single vector containing, for every word in our vocabulary, the probability that a randomly selected nearby word is that vocabulary word (e.g. car).</li>
 </ol>
-<p>The following is a condensed version of our progress and application in the field of employee training.</p>
-<h1 id="the-challenge">the challenge</h1>
-<p>In the first stage, we're making learning more interactive. We're doing this through combining object-level data with real-time eye tracking.
-<img src="/img/fovea/how-it-works.jpeg" alt="Fovea how it works"></p>
-<ol>
-<li><strong>Content is uploaded to the cloud by the user.</strong> This could be video, training documents, graphics, photos, or any other form of media. State-of-the-art processing algorithms are used to analyze the content and prepare it for viewing.</li>
-<li><strong>Viewers enable the standard webcam on their laptop</strong> or stand in front of a display with a simple camera. No special software is needed, Fovea can run entirely through a web browser. If desired, Fovea can verify which user is currently watching — for cases of remote training or online education, this will be useful.</li>
-<li>While the viewer is viewing the content, <strong>Fovea tracks and processes their eye movements in real time</strong>, in connection with the analysis from step 1. This allows Fovea to understand exactly what is drawing a viewer’s attention and serve content based on that.</li>
-<li><strong>Analytics are generated</strong> for the user to determine which content was effective and how to better design viewer experiences going forward.</li>
-</ol>
-<h1 id="training-pilot-study">training pilot study</h1>
-<p>We selected a <a href="https://www.youtube.com/watch?v=BRx_pCaMKI0&amp;feature=youtu.be">video on OSHA safety signs</a> that are commonly encountered in manufacturing facilities, and specified areas of interest (AOIs) that a training manager may label as important.</p>
-<p>Next, we recruited a small number of participants online through MTurk, who viewed the training video and answered quizzes, triggered at various times. Each personalized quiz question was based on the AOI they viewed least. In other words, if important regions in the video weren’t attended to as much as they should have, participants were presented with a multiple-choice quiz that drew their attention to areas that were labeled as important.</p>
-<p><img src="/img/fovea/training.gif" alt="Components of the training experience"></p>
-<p>Eye tracking was done through the participants’ web camera, after detection of the eye region, shown at all times to the participants so they were aware of what data was being analyzed. We did not need to store any image data, and only used the frame-by-frame footage to extrapolate eye tracking coordinates client-side.</p>
-<h2 id="results">results</h2>
-<p>We were initially worried about the problems posed by the variety of environmental effectors on the quality of eye tracking data, e.g. poor lighting, laptop setup. However, we found that our eye detector was able to detect the eye region with high confidence (&gt; 85% of the time), and the majority of samples (&gt;74%) detected that viewers were looking at the video region.</p>
-<p>Next, I was very curious about how well our dynamic quiz performance corresponded with looking time. We're not publishing these results anytime soon since it's just a feasibility study, but we were encouraged to see that we not only were able to present quiz questions based on viewed regions, in real time, but this actually related to how well participants performed on the assessments.</p>
-<p><img src="/img/fovea/attention-retention.png" alt="Dynamic quiz performance vs. eye tracking"></p>
-<h2 id="interactive-viewing">interactive viewing</h2>
-<p>The novelty of Fovea relies on using eye tracking in real time to effect content delivery. In this application, the quiz questions were personalized to each viewer, and the question related to an AOI that they viewed <strong>least</strong> in the preceding section of the video. In the image below, sections are labeled <em><strong>Danger, Warning, Caution, Notice and General Safety</strong></em>, and the selected sequence of quiz questions depended on AOIs that were viewed least (red border).</p>
-<p><img src="/img/fovea/quiz-sequence.png" alt="Dynamic quiz performance vs. eye tracking"></p>
-<p>Through presenting assessments dynamically, we guided viewers to paying attention to those AOIs that were quizzed on ~ 7% more of the time in the subsequent region. This type of interactivity is valuable in learning. You can read more <a href="https://medium.com/fovea/the-future-of-content-delivery-over-the-web-using-eye-tracking-565ae042c2b2">on our full post</a>.</p>
-<h2 id="whats-next">what's next?</h2>
-<p>Next, we're partnering with the Associated Press to present news content interactively. This is something I'm very passionate about, every time I have to immediately close or mute a video on a news website since it never presents what I want to see. Inconvenience aside, interactive news content delivery can makes facts more engaging and personalized. Below is a preview of what you can expect: object-specific data is paired with real-time eye tracking to automate editing.</p>
-<p><img src="/img/fovea/ap-delivery.gif" alt="News content delivery through Fovea"></p>
-<p>Read more about our future goals <a href="https://medium.com/fovea/the-future-of-content-delivery-over-the-web-using-eye-tracking-565ae042c2b2">here</a>.</p>
+
+<p>This is outlined in the figure below.
+<figure><img src="/img/word-representations.png" alt="Source: http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model"></figure></p>
+
+<p>A <a href="https://stackoverflow.com/questions/34870614/what-does-tf-nn-embedding-lookup-function-do">response on StackOverflow by the user kmario23</a> provides a good start to defining variables for this post, I've added additional, Tensorflow-specific functions to make this practical. Embedding matrices are typically trained from large (e.g. language) corpora, and are of the shape <strong>vocab_size * embedding_dim</strong>.</p>
+
+<p>Suppose the following vocabulary:</p>
+<pre><code>vocab : ['the','like','between','did','just','national',
+		'day','country','under','such','second']</code></pre>
+<p>Imagine the following, trained word2vec vectors:</p>
+
+<p><span  class="math">\[
+\small{ the : \left( 0.418 0.24968 -0.41242 0.1217 0.34527 -0.044457 -0.49688 -0.17862 \right)}\\
+\small{ like : \left( 0.36808 0.20834 -0.22319 0.046283 0.20098 0.27515 -0.77127 -0.76804 \right)}\\
+\small{ between : \left( 0.7503 0.71623 -0.27033 0.20059 -0.17008 0.68568 -0.061672 -0.054638 \right)}\\
+\small{ did : \left( 0.042523 -0.21172 0.044739 -0.19248 0.26224 0.0043991 -0.88195 0.55184 \right)}\\
+\small{ just : \left( 0.17698 0.065221 0.28548 -0.4243 0.7499 -0.14892 -0.66786 0.11788 \right)}\\
+\small{ national : \left( -1.1105 0.94945 -0.17078 0.93037 -0.2477 -0.70633 -0.8649 -0.56118 \right)}\\
+\small{ day : \left( 0.11626 0.53897 -0.39514 -0.26027 0.57706 -0.79198 -0.88374 0.30119 \right)}\\
+\small{ country : \left( -0.13531 0.15485 -0.07309 0.034013 -0.054457 -0.20541 -0.60086 -0.22407 \right)}\\
+\small{ under : \left( 0.13721 -0.295 -0.05916 -0.59235 0.02301 0.21884 -0.34254 -0.70213 \right)}\\
+\small{ such : \left( 0.61012 0.33512 -0.53499 0.36139 -0.39866 0.70627 -0.18699 -0.77246 \right)}\\
+\small{ second : \left( -0.29809 0.28069 0.087102 0.54455 0.70003 0.44778 -0.72565 0.62309 \right)}\\
+\]</span></p>
+
+<p>The embedding matrix is:</p>
+<pre><code>emb = np.array([[0.418, 0.24968, -0.41242, 0.1217, 0.34527, -0.044457, -0.49688, -0.17862],
+   [0.36808, 0.20834, -0.22319, 0.046283, 0.20098, 0.27515, -0.77127, -0.76804],
+   [0.7503, 0.71623, -0.27033, 0.20059, -0.17008, 0.68568, -0.061672, -0.054638],
+   [0.042523, -0.21172, 0.044739, -0.19248, 0.26224, 0.0043991, -0.88195, 0.55184],
+   [0.17698, 0.065221, 0.28548, -0.4243, 0.7499, -0.14892, -0.66786, 0.11788],
+   [-1.1105, 0.94945, -0.17078, 0.93037, -0.2477, -0.70633, -0.8649, -0.56118],
+   [0.11626, 0.53897, -0.39514, -0.26027, 0.57706, -0.79198, -0.88374, 0.30119],
+   [-0.13531, 0.15485, -0.07309, 0.034013, -0.054457, -0.20541, -0.60086, -0.22407],
+   [ 0.13721, -0.295, -0.05916, -0.59235, 0.02301, 0.21884, -0.34254, -0.70213],
+   [ 0.61012, 0.33512, -0.53499, 0.36139, -0.39866, 0.70627, -0.18699, -0.77246 ],
+   [ -0.29809, 0.28069, 0.087102, 0.54455, 0.70003, 0.44778, -0.72565, 0.62309 ]])
+
+
+emb.shape
+# (11, 8)</code></pre>
+<p>We will come back to using <code>emb</code> in exploring how dense layers and embedding layers are related.</p>
+
+<h1 id="weights-in-vectorized-representations">weights in vectorized representations</h1>
+
+<p>In the example above, and in general, embeddings are simply hidden layer weights. Whether it's the word2vec representations, or the more sophisticated, context-sensitive, representations like <a href="https://www.aclweb.org/anthology/N18-1202/">ELMo</a>, the goal involves learning a linear combination of layer representations.</p>
+
+<p>Running with the ELMo comparison, the difference in the embeddings from the one derived from the single, hidden layer is in the way we combine hidden layer outputs. The motivation is to combine context-dependent aspects of a word meaning (using higher-level LSTM layer weights), and syntax from lower-level LSTM states in order to represent more information about a token in a single vector.</p>
+
+<p><span  class="math">\[
+ ELMo_{k}^{\operatorname{task}}=\gamma^{\operatorname{task}} \sum_{j=0}^{L} s_{j}^{\operatorname{task}} \mathbf{h}_{k, j}^{L M}
+\]</span></p>
+
+<p><span  class="math">\( \gamma \)</span> acts as a (task-specific) scale to the ELMo vector,</p>
+
+<p><span  class="math">\( s \)</span> are the softmax-normalized weights,</p>
+
+<p><span  class="math">\( k \)</span> is the index of the word of interest,</p>
+
+<p><span  class="math">\( j \)</span> is the index of the layers (total <span  class="math">\( L \)</span>) the weighted sum is calculated over,</p>
+
+<p><span  class="math">\( h_{k,j} \)</span>  is the output of the <span  class="math">\( j \)</span>-th LSTM for the word <span  class="math">\( k \)</span>.</p>
+
+<p>In summary, we train a multi-layer, bi-directional, LSTM from a large corpus, extract the hidden state of each layer for the input sequence of words, compute a weighted sum of those hidden states to arrive at our final vectorized representation, or embedding. The weight of each hidden state is task-dependent and is learned separately.</p>
+
+<h1 id="using-pretrained-embeddings-vs-embedding-layers">using pre-trained embeddings vs. embedding layers</h1>
+
+<p>Realated to the overall question of how and why different the results of a study would be using embeddings vs. a fully connected layer, <a href="https://towardsdatascience.com/pre-trained-word-embeddings-or-embedding-layer-a-dilemma-8406959fd76c">recent work</a> that looked into using task-specific embedding layers or pre-trained embeddings trained on larger text corpora has found intersting results. For embeddings derived from a sufficiently large corpus, we can expect faster training times and lower final loss, from the original author, Meghdad Farahmand:</p>
+
+<blockquote>
+<p>This can mean that for solving certain NLP tasks, when the training set at hand is sufficiently large (as was the case in the Sentiment Analysis experiments), it is better to use pre-trained word embeddings. But if they are not available, you can still use an embedding layer and expect comparable results. If, however, the training set is small, the above experiments strongly encourage the use of pre-trained word embeddings.</p>
+</blockquote>
+
+<h1 id="embeddings-are-simplified-dense-layers">embeddings are simplified, dense layers</h1>
+
+<p>In addressing the relation between embeddings and dense layers, I was in search of a clear, functional explanation to why embeddings may be preferred when we have words as input or sequenced, categorical variables over ouputs from dense layers. Coming back to our initialization from before, imagine we want to convert the following sentence to an embedding:</p>
+<pre><code>sentence_to_embed = 'like national day'</code></pre>
+<p>Attempting to use a naive, dense network will need the following process in order to convert this sentence to its vectorized representation:</p>
+
+<p><span  class="math">\[
+\text{sentence_to_embed} \rightarrow \text{one hot encoding matrix} \rightarrow \\ \text{matrix multiplication with emb}
+\]</span></p>
+
+<p>The Tensorflow process would go something like:</p>
+<pre><code>inputs = one_hot(sentence_to_embed)
+print(inputs)
+# array([[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]] dtype=float32)
+
+outputs = matmul(inputs, emb)  # kernel matrix
+print(outputs)
+# array([[0.36808, 0.20834, -0.22319, 0.046283, 0.20098, 0.27515, -0.77127, -0.76804],
+       [-1.1105, 0.94945, -0.17078, 0.93037, -0.2477, -0.70633, -0.8649, -0.56118],
+       [0.11626, 0.53897, -0.39514, -0.26027, 0.57706, -0.79198, -0.88374, 0.30119]], dtype=float32)</code></pre>
+<p>There's a problem here: the <code>inputs</code> size increases dramatically with language size. The embedding layer performs a shortcut: it looks up the index of the words in <code>sentence_to_embed</code> and references the relevant rows of <code>emb</code> to avoid the dot product:</p>
+<pre><code>outputs = tf.gather(emb, sentence_to_embed)
+# same output as above</code></pre>
+<p>That's it for the difference. Embedding layers are limited dense layers, with two limitations: the inputs need to be integers, and you cannot use the bias or activation aspects of dense layers - only the kernel.</p>
+
+<h1 id="takeaway">takeaway</h1>
+
+<p>An embedding layer is a limited version of a dense layer. It is useful to speed up training and to yeild lower final loss, because it avoids costly matrix multiplication through the assumption that inputs can be referenced by their indices.</p>
+
+<p>Embeddings are best used in pairing with raw input, as in the case of ELMo where the embeddings can be concatenated with one-hot encodings for certain problems, where the vectorized representations of categorical data or words was pre-trained (<a href="https://allennlp.org/elmo">see here for some downloads</a>). Furthermore, embeddings can be simple (dense layer weights) or more complicated (weighing multiple layer weights with some task-specific scaling).</p>
+
+<p>Realizing that it's is not feasible to train dense networks for your problem will strongly suggest that embeddings will improve model performance, but take a look at the Meghdad's application above to see if the performance improvements would be worth it.</p>
+
+<h1 id="other-relevant-resources">other relevant resources</h1>
+
+<ul>
+<li><a href="http://www.davidsbatista.net/blog/2018/12/06/Word_Embeddings/">Great summary of the progress and types of langauge embeddings</a></li>
+<li><a href="https://stackoverflow.com/questions/47868265/what-is-the-difference-between-an-embedding-layer-and-a-dense-layer">Some helpful Stackoverflow responses on the topic</a></li>
+</ul>
     </div>
 
     
@@ -370,32 +465,18 @@
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://schko.github.io/tags/eye-tracking/">eye tracking</a>
-          <a href="http://schko.github.io/tags/object-detection/">object detection</a>
-          <a href="http://schko.github.io/tags/cloud-services/">cloud services</a>
-          <a href="http://schko.github.io/tags/fovea/">fovea</a>
+          <a href="http://schko.github.io/tags/machine-learning/">machine learning</a>
+          <a href="http://schko.github.io/tags/neural-networks/">neural networks</a>
+          <a href="http://schko.github.io/tags/embeddings/">embeddings</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/embeddings-fcn/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">embeddings layers and dense connections</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
-          <a class="next" href="/post/google-cloud/">
-            <span class="next-text nav-default">scaling machine learning projects</span>
+          <a class="next" href="/post/fovea-training/">
+            <span class="next-text nav-default">remote training with eye tracking</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">
@@ -535,9 +616,40 @@
 
 
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
+    integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG"
+    crossorigin="anonymous">
+
+  
+  <script defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js"
+    integrity="sha384-JiKN5O8x9Hhs/UE5cT5AAJqieYlOZbGT3CHws/y97o3ty4R7/O5poG9F3JoiOYw1"
+    crossorigin="anonymous"></script>
+
+  
+  <script defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+    crossorigin="anonymous" onload="renderMathInElement(document.body);">
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        
+      });
+    });
+  </script>
 
 
 

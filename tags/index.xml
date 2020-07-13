@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://schko.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>embeddings</title>
+      <link>http://schko.github.io/tags/embeddings/</link>
+      <pubDate>Sat, 11 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/tags/embeddings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>http://schko.github.io/tags/machine-learning/</link>
+      <pubDate>Sat, 11 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>neural networks</title>
+      <link>http://schko.github.io/tags/neural-networks/</link>
+      <pubDate>Sat, 11 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/tags/neural-networks/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cloud services</title>
@@ -54,15 +81,6 @@
       <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>http://schko.github.io/tags/google/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>http://schko.github.io/tags/machine-learning/</link>
-      <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://schko.github.io/tags/machine-learning/</guid>
       <description></description>
     </item>
     

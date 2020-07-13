@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>machine learning on Machine Learning and Video</title>
-    <link>http://schko.github.io/tags/machine-learning/</link>
-    <description>Recent content in machine learning on Machine Learning and Video</description>
+    <title>embeddings on Machine Learning and Video</title>
+    <link>http://schko.github.io/tags/embeddings/</link>
+    <description>Recent content in embeddings on Machine Learning and Video</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
     <lastBuildDate>Sat, 11 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://schko.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://schko.github.io/tags/embeddings/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>http://schko.github.io/post/embeddings-fcn/</guid>
       <description>&lt;p&gt;On the relatedness between embeddings and dense connections.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>scaling machine learning projects</title>
-      <link>http://schko.github.io/post/google-cloud/</link>
-      <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://schko.github.io/post/google-cloud/</guid>
-      <description>&lt;p&gt;A guide to scaling machine learning projects using Google&#39;s tools.&lt;/p&gt;</description>
     </item>
     
   </channel>

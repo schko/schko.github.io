@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://schko.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>embeddings layers and dense connections</title>
+      <link>http://schko.github.io/post/embeddings-fcn/</link>
+      <pubDate>Sat, 11 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/post/embeddings-fcn/</guid>
+      <description>&lt;p&gt;On the relatedness between embeddings and dense connections.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>remote training with eye tracking</title>
