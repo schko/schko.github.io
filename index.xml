@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Sat, 11 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jan 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://schko.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -46,6 +46,137 @@
 &lt;a href=&#34;mailto:munna@fractal.nyc&#34;&gt;Email&lt;/a&gt; |
 &lt;a href=&#34;https://github.com/schko&#34;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 </description>
+      
+    </item>
+    
+    <item>
+      <title>style and content transfer of eye images using gans</title>
+      <link>http://schko.github.io/post/eye-gan/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/post/eye-gan/</guid>
+      
+        <description>&lt;p&gt;How discriminator losses and normalization can be used to transfer semantic content and style information. A summary of work by Buhler et al, 2019.&lt;/p&gt;
+
+&lt;p&gt;The following is a snippet from my first doctoral exam.&lt;/p&gt;
+
+&lt;h1 id=&#34;background&#34;&gt;Background&lt;/h1&gt;
+
+&lt;p&gt;A particular challenge in gaze prediction is a lack of data to apply sophisticated models that may be better able to model eye behavior. In fact, lack of high quality eye tracking data is a problem in the field of HCI &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:vanRenswoude2018Gazepath-Quality&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:vanRenswoude2018Gazepath-Quality&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Blignaut2014Eye-trackingDesign&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:Blignaut2014Eye-trackingDesign&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;, presented by individual variability, privacy concerns and noise in signals from sensors that may be more ubiquitious (e.g., laptop cameras) but imprecise compared to more reliable, in-lab setups (e.g., with IR sensors). Buhler et al&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:buhleretal&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:buhleretal&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; address this problem through an application of GANs capable of generating data that maintain both the semantic and style information contained in images of the eye. The authors aim to generate eye image data that preserves the semantic segmentation of eye features (i.e. pupil, iris, sclera) relevant to gaze prediction while also modeling participant-specific eye style, characterized by perceptual features such as skin quality around the eye or sclera vasculature.&lt;/p&gt;
+
+&lt;p&gt;The main problem the authors address is the lack of 2D eye images, collected from infrared cameras sensors, for model training. Specifically, they sought to improve data volume for training gaze estimation models under occlusion in VR, synthesize person-specific eye images that satisfy a segmentation mask and follow the style of a specified person from only a few reference images. Furthermore, the authors propose a method to inject style and content information at scale, which has implications past HCI to clinical diagnoses using eye behavior markers in patients with scleritis, autism or schizophrenia &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Corvera1973TheTest&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:Corvera1973TheTest&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Holzman1973Eye-TrackingSchizophrenia&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:Holzman1973Eye-TrackingSchizophrenia&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Guillon2014VisualStudies&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:Guillon2014VisualStudies&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;p&gt;The authors modify GANs, adversarial networks which typically take random noise as input. By introducing noise, the model can produce data from a variety of locations in the target distribution, subsequently transforming the noise into a meaningful output. In implementation, GANs utilize two loss functions: one that is designed to replicate a probability distribution through generation of new image instances, hence &amp;quot;generative,&amp;quot; and another that acts as a discriminator which outputs a probability of the new image instances being real. Because the authors work relies on extensive technical background, the focus of this brief will cover the design of discriminator loss functions to quantify segmentation and style difference between &amp;quot;fake&amp;quot; and &amp;quot;real&amp;quot; images and the use of normalization to generate convincing fake images. These are critical to understanding recent and future applications of GANs to clinical image data, specifically in the generation of artificial eye images through the authors&#39; proposed Seg2Eye network.&lt;/p&gt;
+
+&lt;h2 id=&#34;preserving-eye-image-style-through-losses-and-normalization&#34;&gt;Preserving eye image style through losses and normalization&lt;/h2&gt;
+
+&lt;p&gt;First we define the simple way in which style information difference is quantified across two images by the discriminator. The output of a kernel (i.e., filter) applied to a convolutional layer (&lt;span  class=&#34;math&#34;&gt;\(l\)&lt;/span&gt;) forms the feature map (&lt;span  class=&#34;math&#34;&gt;\(F^l\)&lt;/span&gt;) associated with the layer. The Gram matrix &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Gatys2016AStyle&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:Gatys2016AStyle&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; is computed using data from specific layers and on a number of feature maps (&lt;span  class=&#34;math&#34;&gt;\(N_l\)&lt;/span&gt;). It is a quantification of the similarity between features in a layer, across all feature maps. The &lt;span  class=&#34;math&#34;&gt;\(N^l \times N^l\)&lt;/span&gt; Gram matrix is composed of elements indexed by maps &lt;span  class=&#34;math&#34;&gt;\(i, j\)&lt;/span&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\mathbf{G}^{l}=\left\langle\mathbf{F}_{i:}^{l}, \mathbf{F}_{j:}^{l}\right\rangle = \left[\begin{array}{c}
+\mathbf{F}_{1:}^{T} \\
+\mathbf{F}_{2:}^{l}{ }^{T} \\
+\vdots \\
+\mathbf{F}_{N_{l}:}^{l}
+\end{array}\right]\left[\begin{array}{llll}
+\mathbf{F}_{1:}^{l} &amp; \mathbf{F}_{2:}^{l} &amp; \cdots &amp; \mathbf{F}_{N_{l}}^{l}
+\end{array}\right]
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;where &lt;span  class=&#34;math&#34;&gt;\(\mathbf{F}_{i:}\)&lt;/span&gt; represents the column representation of a feature map &lt;span  class=&#34;math&#34;&gt;\(i\)&lt;/span&gt;. The Gram matrix has been effectively used to quantify the amount of style loss of a generated image &lt;span  class=&#34;math&#34;&gt;\(\hat{I}\)&lt;/span&gt; with respect to a style target image &lt;span  class=&#34;math&#34;&gt;\(I\)&lt;/span&gt;. The style-specific loss &lt;span  class=&#34;math&#34;&gt;\(\mathcal{L}_{\text {Gram}}\)&lt;/span&gt; is calculated by Buhler et al as:&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\mathcal{L}_{\text{Gram}}=\Sigma_{i=2}^{m}\left\|\mathbf{G}^{l}\left(F_{E}(\hat{I})\right)-\mathbf{G}^{l}\left(F_{E}(I)\right)\right\|_{1}
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;where &lt;span  class=&#34;math&#34;&gt;\(E\)&lt;/span&gt; is a style encoder trained to discriminate between feature map activations of (real) style images and m is the number of feature maps in &lt;span  class=&#34;math&#34;&gt;\(E\)&lt;/span&gt;. The style loss metric computes the L1 distance (i.e. sum of absolute differences) between a generated and target image feature maps at the Seg2Eye discriminator layer &lt;span  class=&#34;math&#34;&gt;\(l\)&lt;/span&gt;. Thus, the style encoder is trained to distinguish between feature map activations of different styles of eye images, and this information is used in place of calculating the Gram matrix from feature maps within the Seg2Eye network downstream.&lt;/p&gt;
+
+&lt;p&gt;Another key aspect of Seg2Eye is the use of adaptive instance normalization (AdaIN) by the generator, which replaces batch normalization typically used in deep networks for the purposes of style transfer. While batch normalization has arguably been one of the core advancements that has made deep learning feasible for a wide range of biomedical problems &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Santurkar2019HowTraining&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:Santurkar2019HowTraining&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;, normalizing batches of data loses style information. AdaIN uses style input to align the channel-wise mean and variance of a content input to match the style. In Seg2Eye, this is used after a convolutional network layer to normalize the generated image statistics using the style reference from a human&#39;s eye (Fig. 2a in &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Buhler2019Content-ConsistentStyle&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:Buhler2019Content-ConsistentStyle&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;), transferring qualities such as sclera perforations and skin around the eye to the generated image. For a given style reference image, AdaIN uses its layer activations &lt;span  class=&#34;math&#34;&gt;\(r\)&lt;/span&gt; and computes its mean &lt;span  class=&#34;math&#34;&gt;\(\mu\)&lt;/span&gt; and variance &lt;span  class=&#34;math&#34;&gt;\(\sigma\)&lt;/span&gt; from a layer:&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;http://schko.github.io/img/buhler2a.png&#34; alt=&#34;Figure 2a from Buhler et al&#34; title=&#34;Figure 2a from the original paper: Seg2Eye architecture. Describes the authors&#39; novel SPADE+Style Block, which combines Adaptive Instance Normalization (AdaIN) and Spatially Adaptive Normalization (SPADE) to allow for simultaneous style and content injection into the generator at multiple scales.&#34;&gt;&lt;figcaption&gt;Figure 2a from the original paper: Seg2Eye architecture. Describes the authors&#39; novel SPADE+Style Block, which combines Adaptive Instance Normalization (AdaIN) and Spatially Adaptive Normalization (SPADE) to allow for simultaneous style and content injection into the generator at multiple scales.&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\mu_{n c}(r)=\frac{1}{H W} \sum_{h=1}^{H} \sum_{w=1}^{W} r_{n c h w} \\
+\sigma_{n c}(r)=\sqrt{\frac{1}{H W} \sum_{h=1}^{H} \sum_{w=1}^{W}\left(r_{n c h w}-\mu_{n c}(x)\right)^{2}+\epsilon}
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;where &lt;span  class=&#34;math&#34;&gt;\(H, W\)&lt;/span&gt; represent the dimensions of the activations and &lt;span  class=&#34;math&#34;&gt;\(n, c\)&lt;/span&gt; represent the batch and channel (i.e. layer) respectively. Then, for a generated image, the AdaIN block uses the &lt;span  class=&#34;math&#34;&gt;\(\mu(r)\)&lt;/span&gt; and &lt;span  class=&#34;math&#34;&gt;\(\sigma(r)\)&lt;/span&gt; when scaling activations during learning:&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\operatorname{AdaIN}(x, r)=\sigma(r)\left(\frac{x_{nc}-\mu(x)}{\sigma(x)}\right)+\mu(r)
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;where &lt;span  class=&#34;math&#34;&gt;\(x\)&lt;/span&gt; refers to the normalized image activations associated with the generated image. AdaIN allows each sample to be normalized distinctly (unlike batch normalization), and furthermore utilizes first- and second-order statistics of preferred activations from the reference style image. Through shifting and scaling layer activations of the generated image via AdaIN and minimizing a loss function (&lt;span  class=&#34;math&#34;&gt;\(\mathcal{L}_{\text {Gram}}\)&lt;/span&gt;) which compares feature maps between the generated and reference image, the network maintains the content&#39;s spatial information but uses the human eye reference image to infer style information critical to preserving perceptual similarity of the eye. This was an important goal for the authors to improve data generation methods.&lt;/p&gt;
+
+&lt;h2 id=&#34;preserving-eye-image-segmentations-through-losses-and-normalization&#34;&gt;Preserving eye image segmentations through losses and normalization&lt;/h2&gt;
+
+&lt;p&gt;A notable aspect of Seg2Eye is its input: rather than random noise typical of GANs, it utilizes more contextual information in the form of a segmentation mask. In this case, the reference image of the map consisted of a pupil, sclera and iris segmentations. While the Gram matrix is useful for quantifying the difference in consistency of feature maps across images by the discriminator, simply taking the distance between feature maps allows us to learn broad content information contained in an image through a previously proposed &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Gatys2016AStyle&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:Gatys2016AStyle&#34;&gt;10&lt;/a&gt;&lt;/sup&gt; loss function:&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\mathcal{L}_{\text{\mathcal{D}_F}}=\Sigma_{i=2}^{m}\left\|F_{D}^{l}(\hat{I})-F_{D}^{l}(I)\right\|_{1}
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;where &lt;span  class=&#34;math&#34;&gt;\( F_{D}^{l} \)&lt;/span&gt; represents the feature map at discriminator network &lt;span  class=&#34;math&#34;&gt;\(D\)&lt;/span&gt; layer &lt;span  class=&#34;math&#34;&gt;\(l\)&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;Using a segmentation mask as input allows the generator to learn context, and requires a solution that achieves the opposite goal of AdaIN. Semantic segmentation treats multiple objects of the same class (e.g. eye segments) as a single entity (&amp;quot;pupil&amp;quot;). On the other hand, instance segmentation treats multiple objects of the same class (person-specific eye segmentation) as distinct individual objects (&amp;quot;pupil 1,&amp;quot; &amp;quot;pupil 2&amp;quot;). The authors use spatially adaptive denormalization (SPADE) to allow for content injection through modulating layer activations from a generated eye image using a segmentation map input &lt;span  class=&#34;math&#34;&gt;\(m\)&lt;/span&gt;. In effect, this translates to adjusting Eqs. 3 and 4 from AdaIN to makes channel-wise adjustments, separately for each layer:&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\mu_{c}(x)=\frac{1}{N H W} \sum_{h=1}^{N} \sum_{h=1}^{H} \sum_{w=1}^{W} x_{n c h w} \\
+\sigma_{c}(x)=\sqrt{\frac{1}{N H W} \sum_{h=1}^{N} \sum_{h=1}^{H} \sum_{w=1}^{W}\left(x_{n c h w}-\mu_{c}(x)\right)^{2}+\epsilon}
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\operatorname{SPADE}(x, m)=\gamma_{c h w}(m)\left(\frac{x_{nchw}-\mu(x)}{\sigma(x)}\right)+\beta_{c h w}(m)
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;where &lt;span  class=&#34;math&#34;&gt;\(\mu\)&lt;/span&gt; and &lt;span  class=&#34;math&#34;&gt;\(\sigma\)&lt;/span&gt; are now computed across samples (of batch size &lt;span  class=&#34;math&#34;&gt;\(N\)&lt;/span&gt;) for the generated image, but the parameters are modulated by &lt;span  class=&#34;math&#34;&gt;\(\gamma\)&lt;/span&gt; and $\beta$ which are learned parameters from the segmentation mask. In implementation, these values are learned through a simple 2-layer convolution network, which maps the segmentation mask to corresponding scaling and bias values at each &lt;span  class=&#34;math&#34;&gt;\(h\)&lt;/span&gt; and &lt;span  class=&#34;math&#34;&gt;\(w\)&lt;/span&gt; coordinate of the activation map.&lt;/p&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;http://schko.github.io/img/bestperformer.png&#34; alt=&#34;Best performing model - NOT the best perceptually accurate results&#34; title=&#34;Figure 3 from the original paper: Qualitative outputs of the top performing model (without content and style transfer through AdaIN and SPADE). The left three columns show the input reference image, pseudo label and target label. The three columns on the right show the learned residual map, the final predicted image and the target image. The modified regions appear blurry. Compare this with the results below.&#34;&gt;&lt;figcaption&gt;Figure 3 from the original paper: Qualitative outputs of the top performing model (without content and style transfer through AdaIN and SPADE). The left three columns show the input reference image, pseudo label and target label. The three columns on the right show the learned residual map, the final predicted image and the target image. The modified regions appear blurry. Compare this with the results below.&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;Through the use of AdaIN and Gram matrix-derived losses to control style, and SPADE and feature map-derived losses to control segmentation content, the authors applied Seg2Eye in the OpenEDS Challenge &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Garbin2019OpenEDS-Dataset&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:Garbin2019OpenEDS-Dataset&#34;&gt;11&lt;/a&gt;&lt;/sup&gt; to generate synthetic images of eyes given a segmentation mask. The scores were computed as the L2 distance between the synthetic (&lt;span  class=&#34;math&#34;&gt;\(\hat{I}\)&lt;/span&gt;) and ground truth (&lt;span  class=&#34;math&#34;&gt;\(I\)&lt;/span&gt;) images associated with each mask as &lt;span  class=&#34;math&#34;&gt;\(\frac{1}{H W} \sqrt{\Sigma_{i}^{H} \Sigma_{j}^{W}\left(\hat{I}_{i j}-I_{i j}\right)^{2}}\)&lt;/span&gt;, averaged across test samples from 152 participants. While the Seg2Eye model does not match the performance level of the most accurate model, the qualitative or perceptual results (Fig. 4 in &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Buhler2019Content-ConsistentStyle&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:Buhler2019Content-ConsistentStyle&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;) appear much closer to the ground truth relative to the top performer (Fig. 3 in &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Buhler2019Content-ConsistentStyle&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:Buhler2019Content-ConsistentStyle&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;). The authors do not report the precise mean accuracy, merely that it is less than the top-performing model (&lt;span  class=&#34;math&#34;&gt;\(&lt;25.23\)&lt;/span&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;http://schko.github.io/img/seg2eye.png&#34; alt=&#34;Best perceptually accurate results&#34; title=&#34;Figure 4 from the original paper: Qualitative outputs of Seg2Eye. From left to right are (1) one of the style image inputs, (2) target segmentation mask input, (3) generated image, and (4) target real image taken from the validation set. The generated image closely follows the segmentation mask and input style.&#34;&gt;&lt;figcaption&gt;Figure 4 from the original paper: Qualitative outputs of Seg2Eye. From left to right are (1) one of the style image inputs, (2) target segmentation mask input, (3) generated image, and (4) target real image taken from the validation set. The generated image closely follows the segmentation mask and input style.&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;strengths-and-limitations&#34;&gt;Strengths and Limitations&lt;/h1&gt;
+
+&lt;p&gt;One of the primary reasons why researchers often use first-order fixation measures or limited pupil response around fixations is most likely due to noise in reliably capturing eye measures. Buhler et al&#39;s computational approach appears to outperform most submissions for the OpenEDS Challenge in attempts to address this problem. The authors work has large implications to other biomedical areas of research which require high quality image data. Through modeling an individual&#39;s external eye through a segmentation map and style image references, this area of work can vastly increase ease of data collection. Provided a small reference sample, simulated viewing behavior data may be able to strengthen predictive power for attention classification tasks. However, the specificity of the authors work is hard to judge, as their image generation techniques have not been tested rigorously outside of the OpenEDS dataset. Furthermore, the authors&#39; Seg2Eye approach is weakened by the fact that it was not the top performer, despite producing relatively better perceptually similar images to the ground truth. This indicates a mismatch between the competition assessment technique, which compares pixel-by-pixel similarity, and qualitative assessment, or human judgement, of how close the artificial images are to human eye images.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:vanRenswoude2018Gazepath-Quality&#34;&gt;van Renswoude, D. R., Raijmakers, M. E. J., Koornneef, A., Johnson, S. P., Hunnius, S., &amp;amp; Visser, I. (2018). Gazepath: An eye-tracking analysis tool that accounts for individual differences and data quality. Behavior Research Methods, 50(2), 834–852. &lt;a href=&#34;https://doi.org/10.3758/s13428-017-0909-3&#34;&gt;https://doi.org/10.3758/s13428-017-0909-3&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:vanRenswoude2018Gazepath-Quality&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Blignaut2014Eye-trackingDesign&#34;&gt;Blignaut, P., &amp;amp; Wium, D. (2014). Eye-tracking data quality as affected by ethnicity and experimental design. Behavior Research Methods, 46(1), 67–80. &lt;a href=&#34;https://doi.org/10.3758/s13428-013-0343-0&#34;&gt;https://doi.org/10.3758/s13428-013-0343-0&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Blignaut2014Eye-trackingDesign&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:buhleretal&#34;&gt;Buhler, M., Park, S., De Mello, S., Zhang, X., &amp;amp; Hilliges, O. (2019). Content-Consistent Generation of Realistic Eyes with Style. Proceedings - 2019 International Conference on Computer Vision Workshop, ICCVW 2019, 2019-Janua, 4650–4654. &lt;a href=&#34;https://doi.org/10.1109/ICCVW48693.2019.9130178&#34;&gt;https://doi.org/10.1109/ICCVW48693.2019.9130178&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:buhleretal&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Corvera1973TheTest&#34;&gt;Corvera, J., Torres-Courtney, G., &amp;amp; Lopez-Rios, G. (1973). The Neurotological Significance of Alterations of Pursuit Eye Movements and the Pendular Eye Tracking Test. Annals of Otology, Rhinology &amp;amp; Laryngology, 82(6), 855–867. &lt;a href=&#34;https://doi.org/10.1177/000348947308200620&#34;&gt;https://doi.org/10.1177/000348947308200620&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Corvera1973TheTest&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Holzman1973Eye-TrackingSchizophrenia&#34;&gt;Holzman, P. S., Proctor, L. R., &amp;amp; Hughes, D. W. (1973). Eye-Tracking Patterns in Schizophrenia. (July), 179–182.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Holzman1973Eye-TrackingSchizophrenia&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Guillon2014VisualStudies&#34;&gt;Guillon, Q., Hadjikhani, N., Baduel, S., &amp;amp; Rogé, B. (2014). Visual social attention in autism spectrum disorder: Insights from eye tracking studies. Neuroscience and Biobehavioral Reviews, 42, 279–297. &lt;a href=&#34;https://doi.org/10.1016/j.neubiorev.2014.03.013&#34;&gt;https://doi.org/10.1016/j.neubiorev.2014.03.013&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Guillon2014VisualStudies&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Gatys2016AStyle&#34;&gt;Gatys, L., Ecker, A., &amp;amp; Bethge, M. (2016). A Neural Algorithm of Artistic Style. Journal of Vision, 16(12), 326. &lt;a href=&#34;https://doi.org/10.1167/16.12.326&#34;&gt;https://doi.org/10.1167/16.12.326&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Gatys2016AStyle&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Santurkar2019HowTraining&#34;&gt;Guillon, Q., Hadjikhani, N., Baduel, S., &amp;amp; Rogé, B. (2014). Visual social attention in autism spectrum disorder: Insights from eye tracking studies. Neuroscience and Biobehavioral Reviews, 42, 279–297. &lt;a href=&#34;https://doi.org/10.1016/j.neubiorev.2014.03.013&#34;&gt;https://doi.org/10.1016/j.neubiorev.2014.03.013&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Santurkar2019HowTraining&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Buhler2019Content-ConsistentStyle&#34;&gt;Buhler, M., Park, S., De Mello, S., Zhang, X., &amp;amp; Hilliges, O. (2019). Content-Consistent Generation of Realistic Eyes with Style. Proceedings - 2019 International Conference on Computer Vision Workshop, ICCVW 2019, 2019-Janua, 4650–4654. &lt;a href=&#34;https://doi.org/10.1109/ICCVW48693.2019.9130178&#34;&gt;https://doi.org/10.1109/ICCVW48693.2019.9130178&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Buhler2019Content-ConsistentStyle&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Gatys2016AStyle&#34;&gt;Gatys, L., Ecker, A., &amp;amp; Bethge, M. (2016). A Neural Algorithm of Artistic Style. Journal of Vision, 16(12), 326. &lt;a href=&#34;https://doi.org/10.1167/16.12.326&#34;&gt;https://doi.org/10.1167/16.12.326&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Gatys2016AStyle&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Garbin2019OpenEDS-Dataset&#34;&gt;Garbin, S. J., Shen, Y., Schuetz, I., Cavin, R., Hughes, G., &amp;amp; Talathi, S. S. (2019). OpenEDS: Open eye dataset. ArXiv.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Garbin2019OpenEDS-Dataset&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Buhler2019Content-ConsistentStyle&#34;&gt;Buhler, M., Park, S., De Mello, S., Zhang, X., &amp;amp; Hilliges, O. (2019). Content-Consistent Generation of Realistic Eyes with Style. Proceedings - 2019 International Conference on Computer Vision Workshop, ICCVW 2019, 2019-Janua, 4650–4654. &lt;a href=&#34;https://doi.org/10.1109/ICCVW48693.2019.9130178&#34;&gt;https://doi.org/10.1109/ICCVW48693.2019.9130178&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Buhler2019Content-ConsistentStyle&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Buhler2019Content-ConsistentStyle&#34;&gt;Buhler, M., Park, S., De Mello, S., Zhang, X., &amp;amp; Hilliges, O. (2019). Content-Consistent Generation of Realistic Eyes with Style. Proceedings - 2019 International Conference on Computer Vision Workshop, ICCVW 2019, 2019-Janua, 4650–4654. &lt;a href=&#34;https://doi.org/10.1109/ICCVW48693.2019.9130178&#34;&gt;https://doi.org/10.1109/ICCVW48693.2019.9130178&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Buhler2019Content-ConsistentStyle&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description>
       
     </item>
     

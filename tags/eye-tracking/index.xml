@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sharath Koorathota</copyright>
-    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://schko.github.io/tags/eye-tracking/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>style and content transfer of eye images using gans</title>
+      <link>http://schko.github.io/post/eye-gan/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://schko.github.io/post/eye-gan/</guid>
+      <description>&lt;p&gt;How discriminator losses and normalization can be used to transfer semantic content and style information. A summary of work by Buhler et al, 2019.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>remote training with eye tracking</title>
