@@ -3,7 +3,7 @@
 title: Bonso
 logo: # You can add own logo. For example '/images/logo.png'.
 description: Hi, my name is Adam Howard. I’m a writer and photographer based in Portland. I like being at the center of events, being free and enjoying every moment.
-baseurl: "bonso" # The subpath of your site, e.g. /blog
+baseurl: "" # The subpath of your site, e.g. /blog
 url: "https://schko.github.io" # The base hostname & protocol for your site, e.g. http://example.com
 domain: schko.github.io
 
